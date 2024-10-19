@@ -8,6 +8,7 @@
 import Foundation
 
 struct Api_CityMaps : Codable {
+    
     let result : [Res_CityMap]?
     let message : String?
     let status : String?
@@ -156,7 +157,6 @@ struct Tag_details : Codable {
     let date_time : String?
 
     enum CodingKeys: String, CodingKey {
-
         case id = "id"
         case country_id = "country_id"
         case city_id = "city_id"
@@ -176,5 +176,4 @@ struct Tag_details : Codable {
         color_code = try values.decodeIfPresent(String.self, forKey: .color_code)
         date_time = try values.decodeIfPresent(String.self, forKey: .date_time)
     }
-
 }

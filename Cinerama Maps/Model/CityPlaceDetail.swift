@@ -61,8 +61,8 @@ struct Res_CityPlaceDetails : Codable {
     let lat : String?
     let lon : String?
     let date_time : String?
-    let places_images : [String]?
-    let rating_review : [String]?
+    let places_images : [Places_images]?
+    let rating_review : [Rating_review]?
     let place_details : [Place_details]?
 
     enum CodingKeys: String, CodingKey {
@@ -138,8 +138,8 @@ struct Res_CityPlaceDetails : Codable {
         lat = try values.decodeIfPresent(String.self, forKey: .lat)
         lon = try values.decodeIfPresent(String.self, forKey: .lon)
         date_time = try values.decodeIfPresent(String.self, forKey: .date_time)
-        places_images = try values.decodeIfPresent([String].self, forKey: .places_images)
-        rating_review = try values.decodeIfPresent([String].self, forKey: .rating_review)
+        places_images = try values.decodeIfPresent([Places_images].self, forKey: .places_images)
+        rating_review = try values.decodeIfPresent([Rating_review].self, forKey: .rating_review)
         place_details = try values.decodeIfPresent([Place_details].self, forKey: .place_details)
     }
 }
@@ -224,6 +224,72 @@ struct Place_details : Codable {
         avg_rating = try values.decodeIfPresent(String.self, forKey: .avg_rating)
         plan_purchase_status = try values.decodeIfPresent(String.self, forKey: .plan_purchase_status)
         tag_details = try values.decodeIfPresent([Tag_details].self, forKey: .tag_details)
+    }
+
+}
+
+struct Rating_review : Codable {
+    let id : String?
+    let user_id : String?
+    let city_id : String?
+    let place_id : String?
+    let rating : String?
+    let review : String?
+    let type : String?
+    let date_time : String?
+    let user_name : String?
+    let image : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case id = "id"
+        case user_id = "user_id"
+        case city_id = "city_id"
+        case place_id = "place_id"
+        case rating = "rating"
+        case review = "review"
+        case type = "type"
+        case date_time = "date_time"
+        case user_name = "user_name"
+        case image = "image"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
+        user_id = try values.decodeIfPresent(String.self, forKey: .user_id)
+        city_id = try values.decodeIfPresent(String.self, forKey: .city_id)
+        place_id = try values.decodeIfPresent(String.self, forKey: .place_id)
+        rating = try values.decodeIfPresent(String.self, forKey: .rating)
+        review = try values.decodeIfPresent(String.self, forKey: .review)
+        type = try values.decodeIfPresent(String.self, forKey: .type)
+        date_time = try values.decodeIfPresent(String.self, forKey: .date_time)
+        user_name = try values.decodeIfPresent(String.self, forKey: .user_name)
+        image = try values.decodeIfPresent(String.self, forKey: .image)
+    }
+
+}
+
+struct Places_images : Codable {
+    let id : String?
+    let place_id : String?
+    let image : String?
+    let date_time : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case id = "id"
+        case place_id = "place_id"
+        case image = "image"
+        case date_time = "date_time"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(String.self, forKey: .id)
+        place_id = try values.decodeIfPresent(String.self, forKey: .place_id)
+        image = try values.decodeIfPresent(String.self, forKey: .image)
+        date_time = try values.decodeIfPresent(String.self, forKey: .date_time)
     }
 
 }

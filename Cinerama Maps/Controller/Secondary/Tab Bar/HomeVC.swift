@@ -140,7 +140,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
             }
             
             cell.cloMore = { () in
-                self.viewModel.navigateToGuidlineViewController(from: self.navigationController, resGuidelineTip: self.guidelinesTipVM.arrayGuidelinesTip)
+                self.viewModel.navigateToGuidlineViewController(from: self.navigationController, title: obj.title ?? "", dateTime: obj.date_time ?? "", description: obj.description ?? "")
             }
             
             return cell

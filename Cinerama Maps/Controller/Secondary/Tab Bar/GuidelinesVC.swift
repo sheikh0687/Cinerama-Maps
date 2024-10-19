@@ -13,7 +13,9 @@ class GuidelinesVC: UIViewController {
     @IBOutlet weak var lbl_Date: UILabel!
     @IBOutlet weak var lbl_Description: UILabel!
     
-    var arrayGuidelineTip: [Res_GuidelineTips] = []
+    var titleVal:String = ""
+    var dateTime:String = ""
+    var descriptionVal:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +32,11 @@ class GuidelinesVC: UIViewController {
     }
     
     private func setGuideTips() {
-        for val in arrayGuidelineTip {
-            self.lbl_Title.text = val.title ?? ""
-            self.lbl_Date.text = "The writting date is \(val.date_time ?? "")"
-            let html = val.description
-            if let attributedText = html?.htmlAttributedString3 {
-                self.lbl_Description.attributedText = attributedText
-            }
+        self.lbl_Title.text = self.titleVal
+        self.lbl_Date.text = "The writing date is \(self.dateTime)"
+        let html = self.descriptionVal
+        if let attributedText = html.htmlAttributedString3 {
+            self.lbl_Description.attributedText = attributedText
         }
     }
 }

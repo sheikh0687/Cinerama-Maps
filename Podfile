@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '12.0'
 
 target 'Cinerama Maps' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -20,6 +20,7 @@ pod 'SDWebImage/WebP'
 pod 'Alamofire', '~> 4.9.1'
 
 pod 'DropDown'
+#pod 'IQKeyboardManagerSwift'
 
 end
 

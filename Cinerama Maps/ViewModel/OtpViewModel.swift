@@ -56,6 +56,7 @@ extension OtpViewModel: OTPFieldViewDelegate {
             k.userDefault.set(true, forKey: k.session.status)
             k.userDefault.set(res_SendOtpModel.user_details?.id, forKey: k.session.userId)
             k.userDefault.set(res_SendOtpModel.user_details?.email ?? "", forKey: k.session.userEmail)
+            Switcher.updateRootVC()
         } else {
             print("No Data Store!!")
         }

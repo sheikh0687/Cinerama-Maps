@@ -42,9 +42,11 @@ extension HomeViewModel {
         navigationController?.pushViewController(vC, animated: true)
     }
     
-    func navigateToGuidlineViewController(from navigationController: UINavigationController?, resGuidelineTip: [Res_GuidelineTips]) {
+    func navigateToGuidlineViewController(from navigationController: UINavigationController?,title: String, dateTime: String, description: String) {
         let vC = R.storyboard.main().instantiateViewController(withIdentifier: "GuidelinesVC") as! GuidelinesVC
-        vC.arrayGuidelineTip = resGuidelineTip
+        vC.titleVal = title
+        vC.dateTime = dateTime
+        vC.descriptionVal = description
         navigationController?.pushViewController(vC, animated: true)
     }
     

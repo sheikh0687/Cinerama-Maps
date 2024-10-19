@@ -30,7 +30,6 @@ class OtpVC: UIViewController {
         if viewModel.validateInput() {
             if viewModel.signupStatus == "Yes" {
                 viewModel.manageUserSession()
-                Switcher.updateRootVC()
             } else {
                 viewModel.navigateToSignupViewController(from: self.navigationController)
             }

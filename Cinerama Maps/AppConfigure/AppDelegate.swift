@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import IQKeyboardManagerSwift
 
 let kAppDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Switcher.updateRootVC()
+        IQKeyboardManager.shared.enable = true
         
         if #available(iOS 13.0, *) {
             let tabBarAppearance = UITabBarAppearance()
