@@ -14,7 +14,11 @@ class CountryMapApiViewModel {
     
     func fetchCountryMaps(vC: UIViewController)
     {
-        Api.shared.requestCountryMap(vC) { responseData in
+        var paramDict: [String : AnyObject] = [:]
+        paramDict["user_id"] = k.userDefault.value(forKey: k.session.userId) as AnyObject?
+        paramDict["type"] = "All" as AnyObject
+        
+        Api.shared.requestCountryMap(vC, paramDict) { responseData in
             if responseData.count > 0 {
                 self.arrayCountryMaps = responseData
             } else {

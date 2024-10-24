@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import Cosmos
 
 class ReviewCell: UITableViewCell {
 
     @IBOutlet weak var lbl_Name: UILabel!
+    @IBOutlet weak var lbl_Date: UILabel!
+    @IBOutlet weak var ratingStar: CosmosView!
+    @IBOutlet weak var ratingCount: UILabel!
+    @IBOutlet weak var lbl_Message: UILabel!
+    @IBOutlet weak var user_Img: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +27,4 @@ class ReviewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

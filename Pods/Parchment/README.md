@@ -240,7 +240,7 @@ Read more: [Using the infinite data source](/Documentation/infinite-data-source.
 
 ### Selecting items
 
-You can select items programatically using:
+You can select items programmatically using:
 
 ```Swift
 func select(pagingItem: PagingItem, animated: Bool = false)

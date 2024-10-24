@@ -1,15 +1,14 @@
 //
-//  CityMap.swift
+//  FavCityMaps.swift
 //  Cinerama Maps
 //
-//  Created by Techimmense Software Solutions on 03/09/24.
+//  Created by Techimmense Software Solutions on 24/10/24.
 //
 
 import Foundation
 
-struct Api_CityMaps : Codable {
-    
-    let result : [Res_CityMap]?
+struct Api_FavCityMaps : Codable {
+    let result : [Res_FavCityMaps]?
     let message : String?
     let status : String?
 
@@ -22,13 +21,13 @@ struct Api_CityMaps : Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        result = try values.decodeIfPresent([Res_CityMap].self, forKey: .result)
+        result = try values.decodeIfPresent([Res_FavCityMaps].self, forKey: .result)
         message = try values.decodeIfPresent(String.self, forKey: .message)
         status = try values.decodeIfPresent(String.self, forKey: .status)
     }
 }
 
-struct Res_CityMap : Codable {
+struct Res_FavCityMaps : Codable {
     let id : String?
     let country_id : String?
     let tag_id : String?
@@ -60,14 +59,14 @@ struct Res_CityMap : Codable {
     let address : String?
     let lat : String?
     let lon : String?
+    let city_map_price : String?
+    let city_map_month : String?
     let date_time : String?
-    let country_name : String?
-    let country_name_ar : String?
-    let avg_rating : String?
-    let tag_details : [Tag_details]?
+    let remove_status : String?
     let fav_status : String?
+    let avg_rating : String?
     let subscription_status : String?
-    
+
     enum CodingKeys: String, CodingKey {
 
         case id = "id"
@@ -101,12 +100,12 @@ struct Res_CityMap : Codable {
         case address = "address"
         case lat = "lat"
         case lon = "lon"
+        case city_map_price = "city_map_price"
+        case city_map_month = "city_map_month"
         case date_time = "date_time"
-        case country_name = "country_name"
-        case country_name_ar = "country_name_ar"
-        case avg_rating = "avg_rating"
-        case tag_details = "tag_details"
+        case remove_status = "remove_status"
         case fav_status = "fav_status"
+        case avg_rating = "avg_rating"
         case subscription_status = "subscription_status"
     }
 
@@ -143,43 +142,13 @@ struct Res_CityMap : Codable {
         address = try values.decodeIfPresent(String.self, forKey: .address)
         lat = try values.decodeIfPresent(String.self, forKey: .lat)
         lon = try values.decodeIfPresent(String.self, forKey: .lon)
+        city_map_price = try values.decodeIfPresent(String.self, forKey: .city_map_price)
+        city_map_month = try values.decodeIfPresent(String.self, forKey: .city_map_month)
         date_time = try values.decodeIfPresent(String.self, forKey: .date_time)
-        country_name = try values.decodeIfPresent(String.self, forKey: .country_name)
-        country_name_ar = try values.decodeIfPresent(String.self, forKey: .country_name_ar)
-        avg_rating = try values.decodeIfPresent(String.self, forKey: .avg_rating)
-        tag_details = try values.decodeIfPresent([Tag_details].self, forKey: .tag_details)
+        remove_status = try values.decodeIfPresent(String.self, forKey: .remove_status)
         fav_status = try values.decodeIfPresent(String.self, forKey: .fav_status)
+        avg_rating = try values.decodeIfPresent(String.self, forKey: .avg_rating)
         subscription_status = try values.decodeIfPresent(String.self, forKey: .subscription_status)
     }
-}
 
-struct Tag_details : Codable {
-    let id : String?
-    let country_id : String?
-    let city_id : String?
-    let tag_name : String?
-    let tag_name_ar : String?
-    let color_code : String?
-    let date_time : String?
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case country_id = "country_id"
-        case city_id = "city_id"
-        case tag_name = "tag_name"
-        case tag_name_ar = "tag_name_ar"
-        case color_code = "color_code"
-        case date_time = "date_time"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(String.self, forKey: .id)
-        country_id = try values.decodeIfPresent(String.self, forKey: .country_id)
-        city_id = try values.decodeIfPresent(String.self, forKey: .city_id)
-        tag_name = try values.decodeIfPresent(String.self, forKey: .tag_name)
-        tag_name_ar = try values.decodeIfPresent(String.self, forKey: .tag_name_ar)
-        color_code = try values.decodeIfPresent(String.self, forKey: .color_code)
-        date_time = try values.decodeIfPresent(String.self, forKey: .date_time)
-    }
 }

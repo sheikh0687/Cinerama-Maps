@@ -447,7 +447,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqB-FT-jh1">
-                                        <rect key="frame" x="10" y="18" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="16" width="28" height="28"/>
                                         <color key="tintColor" name="Main"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -618,176 +618,293 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <color key="backgroundColor" name="Main"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-bo-2sO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ybw-wA-aqm">
+                                <rect key="frame" x="0.0" y="64" width="414" height="100"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapheadicon" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-9R-e65">
-                                        <rect key="frame" x="179" y="4" width="56" height="52"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-bo-2sO">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapheadicon" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-9R-e65">
+                                                <rect key="frame" x="179" y="4" width="56" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="ntl-gW-qfO"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Main"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="ntl-gW-qfO"/>
+                                            <constraint firstItem="ooJ-9R-e65" firstAttribute="centerY" secondItem="ihj-bo-2sO" secondAttribute="centerY" id="SrH-LN-pU6"/>
+                                            <constraint firstAttribute="height" constant="60" id="Y6s-Nu-UN5"/>
+                                            <constraint firstItem="ooJ-9R-e65" firstAttribute="centerX" secondItem="ihj-bo-2sO" secondAttribute="centerX" id="gED-OU-des"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsa-xN-76w">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtG-cq-iQf">
+                                                <rect key="frame" x="10" y="6" width="28" height="28"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="BackRound"/>
+                                                <connections>
+                                                    <action selector="btn_Back:" destination="7V9-Yh-yCc" eventType="touchUpInside" id="09z-Rr-th3"/>
+                                                    <action selector="btn_Back:" destination="MQh-q8-zCR" eventType="touchUpInside" id="U6k-xP-pOQ"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your country to visit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBL-A8-Yb7">
+                                                <rect key="frame" x="113" y="10.333333333333341" width="188" height="19.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Main"/>
+                                        <constraints>
+                                            <constraint firstItem="iBL-A8-Yb7" firstAttribute="centerX" secondItem="wsa-xN-76w" secondAttribute="centerX" id="LdQ-bG-dwY"/>
+                                            <constraint firstItem="iBL-A8-Yb7" firstAttribute="centerY" secondItem="wsa-xN-76w" secondAttribute="centerY" id="MDw-Ix-rmm"/>
+                                            <constraint firstItem="XtG-cq-iQf" firstAttribute="centerY" secondItem="wsa-xN-76w" secondAttribute="centerY" id="Mdq-6H-QVP"/>
+                                            <constraint firstItem="XtG-cq-iQf" firstAttribute="leading" secondItem="wsa-xN-76w" secondAttribute="leading" constant="10" id="ncz-Ut-YGG"/>
+                                            <constraint firstAttribute="height" constant="40" id="uHh-S6-oLs"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" name="Main"/>
-                                <constraints>
-                                    <constraint firstItem="ooJ-9R-e65" firstAttribute="centerY" secondItem="ihj-bo-2sO" secondAttribute="centerY" id="SrH-LN-pU6"/>
-                                    <constraint firstAttribute="height" constant="60" id="Y6s-Nu-UN5"/>
-                                    <constraint firstItem="ooJ-9R-e65" firstAttribute="centerX" secondItem="ihj-bo-2sO" secondAttribute="centerX" id="gED-OU-des"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyy-4I-qwc">
-                                <rect key="frame" x="0.0" y="124" width="414" height="563"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="523"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bl-si-08t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="543"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-Id-BiS">
-                                                <rect key="frame" x="20" y="10" width="374" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Jc-e5-CUW">
+                                                <rect key="frame" x="20" y="20" width="374" height="760.33333333333337"/>
                                                 <subviews>
-                                                    <searchBar contentMode="redraw" placeholder="Search for Location" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-Nj-YOY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbT-Pc-Tsz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZLt-B4-N19" userLabel="MapType">
+                                                                <rect key="frame" x="47" y="0.0" width="280" height="45"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFw-GS-olr">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="45"/>
+                                                                        <color key="backgroundColor" name="Main"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <state key="normal" title="All Maps">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="20"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btn_MapType:" destination="7V9-Yh-yCc" eventType="touchUpInside" id="N1a-Pt-kGk"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMq-im-QTF">
+                                                                        <rect key="frame" x="140" y="0.0" width="140" height="45"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <state key="normal" title="My Maps">
+                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="20"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" systemColor="separatorColor"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btn_MapType:" destination="7V9-Yh-yCc" eventType="touchUpInside" id="Krn-92-z3s"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="280" id="YLk-oO-hwi"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="ZLt-B4-N19" firstAttribute="top" secondItem="EbT-Pc-Tsz" secondAttribute="top" id="0Ga-Bq-KQ5"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ZLt-B4-N19" secondAttribute="bottom" id="DoR-4O-46a"/>
+                                                            <constraint firstAttribute="height" constant="45" id="gCM-23-I0D"/>
+                                                            <constraint firstItem="ZLt-B4-N19" firstAttribute="centerX" secondItem="EbT-Pc-Tsz" secondAttribute="centerX" id="oyX-QR-AE0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-Id-BiS">
+                                                        <rect key="frame" x="0.0" y="60" width="374" height="50"/>
+                                                        <subviews>
+                                                            <searchBar contentMode="redraw" placeholder="Search for Location" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-Nj-YOY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOU-Hl-kMl" id="dKq-H1-duf"/>
+                                                                </connections>
+                                                            </searchBar>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="eNS-Nj-YOY" secondAttribute="bottom" id="EFr-cs-E15"/>
+                                                            <constraint firstAttribute="trailing" secondItem="eNS-Nj-YOY" secondAttribute="trailing" id="OmO-dP-4jM"/>
+                                                            <constraint firstItem="eNS-Nj-YOY" firstAttribute="top" secondItem="O1T-Id-BiS" secondAttribute="top" id="jAJ-gv-qXb"/>
+                                                            <constraint firstItem="eNS-Nj-YOY" firstAttribute="leading" secondItem="O1T-Id-BiS" secondAttribute="leading" id="tPg-ON-qxc"/>
+                                                            <constraint firstAttribute="height" constant="50" id="vpi-Vt-jbP"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="1" height="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="wOU-Hl-kMl" id="dKq-H1-duf"/>
-                                                        </connections>
-                                                    </searchBar>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="eNS-Nj-YOY" secondAttribute="bottom" id="EFr-cs-E15"/>
-                                                    <constraint firstAttribute="trailing" secondItem="eNS-Nj-YOY" secondAttribute="trailing" id="OmO-dP-4jM"/>
-                                                    <constraint firstItem="eNS-Nj-YOY" firstAttribute="top" secondItem="O1T-Id-BiS" secondAttribute="top" id="jAJ-gv-qXb"/>
-                                                    <constraint firstItem="eNS-Nj-YOY" firstAttribute="leading" secondItem="O1T-Id-BiS" secondAttribute="leading" id="tPg-ON-qxc"/>
-                                                    <constraint firstAttribute="height" constant="50" id="vpi-Vt-jbP"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="0.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="1" height="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" systemColor="separatorColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFb-5D-VUT">
-                                                <rect key="frame" x="20" y="80" width="374" height="22"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your country you would like to visit?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybY-VZ-lL3">
-                                                <rect key="frame" x="20" y="112" width="374" height="19.333333333333343"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-KP-FGo">
-                                                <rect key="frame" x="20" y="141.33333333333331" width="374" height="200"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="5Ek-t5-4Rn"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HSX-yI-jxq">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="7V9-Yh-yCc" id="mPP-rW-1vK"/>
-                                                    <outlet property="delegate" destination="7V9-Yh-yCc" id="HzD-Gh-ujX"/>
-                                                </connections>
-                                            </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weO-pO-iHE">
-                                                <rect key="frame" x="10" y="351.33333333333331" width="394" height="1"/>
-                                                <color key="backgroundColor" name="Main"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="QKq-c7-xKI"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iBl-bg-OGg">
-                                                <rect key="frame" x="20" y="372.33333333333331" width="374" height="145.99999999999994"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have any suggestions for maps?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAA-C6-CWa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                                        <color key="textColor" name="Main"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt7-Aa-wXb">
-                                                        <rect key="frame" x="0.0" y="42.000000000000057" width="374" height="44"/>
-                                                        <string key="text">For suggestions and adding 
-other maps for cities.</string>
-                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                                        <color key="textColor" name="Main"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y9-Bj-4UA">
-                                                        <rect key="frame" x="0.0" y="106.00000000000006" width="374" height="40"/>
-                                                        <color key="backgroundColor" name="Main"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="tIh-bT-0zP"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Submit your suggestion">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" systemColor="separatorColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                    </button>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WJ5-GJ-gPi">
+                                                        <rect key="frame" x="0.0" y="124.99999999999999" width="374" height="43.333333333333329"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFb-5D-VUT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your country you would like to visit?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybY-VZ-lL3">
+                                                                <rect key="frame" x="0.0" y="24" width="374" height="19.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lU1-dA-2DT">
+                                                        <rect key="frame" x="0.0" y="183.33333333333331" width="374" height="399.99999999999994"/>
+                                                        <subviews>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-KP-FGo">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="200" id="5Ek-t5-4Rn"/>
+                                                                </constraints>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HSX-yI-jxq">
+                                                                    <size key="itemSize" width="128" height="128"/>
+                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                </collectionViewFlowLayout>
+                                                                <cells/>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="7V9-Yh-yCc" id="mPP-rW-1vK"/>
+                                                                    <outlet property="delegate" destination="7V9-Yh-yCc" id="HzD-Gh-ujX"/>
+                                                                </connections>
+                                                            </collectionView>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="udA-G1-hBK">
+                                                                <rect key="frame" x="0.0" y="200.00000000000006" width="374" height="200"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="200" id="cg2-2c-dts"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="7V9-Yh-yCc" id="wRX-q6-0am"/>
+                                                                    <outlet property="delegate" destination="7V9-Yh-yCc" id="q2C-Tf-Ia5"/>
+                                                                </connections>
+                                                            </tableView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weO-pO-iHE">
+                                                        <rect key="frame" x="0.0" y="598.33333333333337" width="374" height="1"/>
+                                                        <color key="backgroundColor" name="Main"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="QKq-c7-xKI"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iBl-bg-OGg" userLabel="Suggest Box">
+                                                        <rect key="frame" x="0.0" y="614.33333333333337" width="374" height="146"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have any suggestions for maps?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAA-C6-CWa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                                <color key="textColor" name="Main"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt7-Aa-wXb">
+                                                                <rect key="frame" x="0.0" y="42" width="374" height="44"/>
+                                                                <string key="text">For suggestions and adding 
+other maps for cities.</string>
+                                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                                <color key="textColor" name="Main"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y9-Bj-4UA">
+                                                                <rect key="frame" x="0.0" y="106" width="374" height="40"/>
+                                                                <color key="backgroundColor" name="Main"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="tIh-bT-0zP"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Submit your suggestion">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="bFb-5D-VUT" firstAttribute="top" secondItem="O1T-Id-BiS" secondAttribute="bottom" constant="20" id="0sL-gv-48i"/>
-                                            <constraint firstItem="7pm-KP-FGo" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="20" id="1Nw-nE-xhK"/>
-                                            <constraint firstItem="weO-pO-iHE" firstAttribute="top" secondItem="7pm-KP-FGo" secondAttribute="bottom" constant="10" id="23s-KB-4y6"/>
-                                            <constraint firstAttribute="trailing" secondItem="O1T-Id-BiS" secondAttribute="trailing" constant="20" id="2Sk-V5-PmV"/>
-                                            <constraint firstAttribute="trailing" secondItem="weO-pO-iHE" secondAttribute="trailing" constant="10" id="5IC-jW-d1T"/>
-                                            <constraint firstItem="iBl-bg-OGg" firstAttribute="top" secondItem="weO-pO-iHE" secondAttribute="bottom" constant="20" id="F3Y-qc-l0v"/>
-                                            <constraint firstItem="weO-pO-iHE" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="10" id="NKR-Ej-ODa"/>
-                                            <constraint firstItem="O1T-Id-BiS" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="20" id="OLh-I3-dS4"/>
-                                            <constraint firstAttribute="trailing" secondItem="iBl-bg-OGg" secondAttribute="trailing" constant="20" id="U9g-MX-11N"/>
-                                            <constraint firstAttribute="trailing" secondItem="bFb-5D-VUT" secondAttribute="trailing" constant="20" id="WWa-bD-sSI"/>
-                                            <constraint firstItem="iBl-bg-OGg" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="20" id="Whu-oN-Fjn"/>
-                                            <constraint firstItem="7pm-KP-FGo" firstAttribute="top" secondItem="ybY-VZ-lL3" secondAttribute="bottom" constant="10" id="X6p-Ys-RDX"/>
-                                            <constraint firstItem="ybY-VZ-lL3" firstAttribute="top" secondItem="bFb-5D-VUT" secondAttribute="bottom" constant="10" id="Y42-17-v1y"/>
-                                            <constraint firstAttribute="bottom" secondItem="iBl-bg-OGg" secondAttribute="bottom" constant="24.670000000000002" id="Yhh-vW-ne3"/>
-                                            <constraint firstAttribute="trailing" secondItem="7pm-KP-FGo" secondAttribute="trailing" constant="20" id="gQG-rK-eK5"/>
-                                            <constraint firstItem="ybY-VZ-lL3" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="20" id="hfv-jb-s3e"/>
-                                            <constraint firstItem="O1T-Id-BiS" firstAttribute="top" secondItem="4bl-si-08t" secondAttribute="top" constant="10" id="m3h-CI-McN"/>
-                                            <constraint firstAttribute="trailing" secondItem="ybY-VZ-lL3" secondAttribute="trailing" constant="20" id="tgi-g5-KnY"/>
-                                            <constraint firstItem="bFb-5D-VUT" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="20" id="x2W-66-utf"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Jc-e5-CUW" secondAttribute="bottom" constant="20" id="6uk-ac-MlP"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Jc-e5-CUW" secondAttribute="trailing" constant="20" id="LLO-xC-2hI"/>
+                                            <constraint firstItem="6Jc-e5-CUW" firstAttribute="leading" secondItem="4bl-si-08t" secondAttribute="leading" constant="20" id="pO4-sH-zOk"/>
+                                            <constraint firstItem="6Jc-e5-CUW" firstAttribute="top" secondItem="4bl-si-08t" secondAttribute="top" constant="20" id="u7n-ne-ikf"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -804,29 +921,38 @@ other maps for cities.</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8Ib-i8-9Rs" firstAttribute="leading" secondItem="Dc7-ME-HwK" secondAttribute="leading" id="1qc-hv-kXC"/>
-                            <constraint firstItem="ihj-bo-2sO" firstAttribute="top" secondItem="8Ib-i8-9Rs" secondAttribute="bottom" id="29H-RX-ubc"/>
                             <constraint firstItem="Pyy-4I-qwc" firstAttribute="leading" secondItem="6sB-oh-jO6" secondAttribute="leading" id="8eH-IK-Ycu"/>
-                            <constraint firstItem="ihj-bo-2sO" firstAttribute="leading" secondItem="Dc7-ME-HwK" secondAttribute="leading" id="8eY-YA-pre"/>
-                            <constraint firstItem="ihj-bo-2sO" firstAttribute="top" secondItem="8Ib-i8-9Rs" secondAttribute="bottom" id="QxD-TS-Qee"/>
+                            <constraint firstItem="ybw-wA-aqm" firstAttribute="leading" secondItem="6sB-oh-jO6" secondAttribute="leading" id="Bya-77-PGo"/>
+                            <constraint firstItem="ybw-wA-aqm" firstAttribute="top" secondItem="8Ib-i8-9Rs" secondAttribute="bottom" id="Oad-yh-mrV"/>
+                            <constraint firstItem="ybw-wA-aqm" firstAttribute="top" secondItem="6sB-oh-jO6" secondAttribute="top" id="RPN-hR-0Er"/>
                             <constraint firstItem="6sB-oh-jO6" firstAttribute="trailing" secondItem="8Ib-i8-9Rs" secondAttribute="trailing" id="Tf4-Ok-qmp"/>
-                            <constraint firstItem="6sB-oh-jO6" firstAttribute="trailing" secondItem="ihj-bo-2sO" secondAttribute="trailing" id="bFW-7S-qkw"/>
                             <constraint firstItem="6sB-oh-jO6" firstAttribute="trailing" secondItem="Pyy-4I-qwc" secondAttribute="trailing" id="bP9-ig-ewJ"/>
-                            <constraint firstItem="Pyy-4I-qwc" firstAttribute="top" secondItem="ihj-bo-2sO" secondAttribute="bottom" id="bth-iC-Sbo"/>
-                            <constraint firstItem="ihj-bo-2sO" firstAttribute="top" secondItem="6sB-oh-jO6" secondAttribute="top" id="hyI-ku-A2d"/>
+                            <constraint firstItem="ybw-wA-aqm" firstAttribute="trailing" secondItem="6sB-oh-jO6" secondAttribute="trailing" id="hfE-mi-Nhb"/>
                             <constraint firstItem="6sB-oh-jO6" firstAttribute="bottom" secondItem="Pyy-4I-qwc" secondAttribute="bottom" id="jJy-wl-l2X"/>
                             <constraint firstItem="8Ib-i8-9Rs" firstAttribute="top" secondItem="Dc7-ME-HwK" secondAttribute="top" id="o2H-dB-flj"/>
+                            <constraint firstItem="Pyy-4I-qwc" firstAttribute="top" secondItem="ybw-wA-aqm" secondAttribute="bottom" id="y58-FX-ogK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ftg-0e-WCi"/>
                     <connections>
+                        <outlet property="btn_AllMapOt" destination="kFw-GS-olr" id="0Wb-3A-awF"/>
+                        <outlet property="btn_MyMapOt" destination="vMq-im-QTF" id="iWv-4u-m5e"/>
+                        <outlet property="cityMap_Table" destination="udA-G1-hBK" id="APl-be-967"/>
                         <outlet property="collection_Height" destination="5Ek-t5-4Rn" id="X50-Mc-glq"/>
+                        <outlet property="lbl_ChooseCity" destination="ybY-VZ-lL3" id="mfp-qT-BtZ"/>
+                        <outlet property="lbl_MapText" destination="bFb-5D-VUT" id="IO8-78-sKe"/>
+                        <outlet property="mapTypeVw" destination="EbT-Pc-Tsz" id="cay-Sv-0gZ"/>
                         <outlet property="map_Collection" destination="7pm-KP-FGo" id="vmC-lf-kW3"/>
+                        <outlet property="map_HeadingVw" destination="ihj-bo-2sO" id="oJQ-lk-nmm"/>
                         <outlet property="search_Bar" destination="eNS-Nj-YOY" id="EYR-vx-J5m"/>
+                        <outlet property="subscription_HeadingVw" destination="wsa-xN-76w" id="FV9-ML-zGA"/>
+                        <outlet property="suggestBoxVw" destination="iBl-bg-OGg" id="qCN-Y8-ete"/>
+                        <outlet property="tableVw_Height" destination="cg2-2c-dts" id="lfS-KX-OW2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xs-Im-4nm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4686.9565217391309" y="2256.521739130435"/>
+            <point key="canvasLocation" x="4686" y="2260"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="Q86-XY-YS1">
@@ -1382,7 +1508,7 @@ other maps for cities.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oo9-DW-lsh">
-                                <rect key="frame" x="20" y="214" width="374" height="453"/>
+                                <rect key="frame" x="8" y="214" width="398" height="453"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nbE-y8-bcu" id="kdw-0r-GIj"/>
@@ -1393,7 +1519,7 @@ other maps for cities.</string>
                         <viewLayoutGuide key="safeArea" id="utK-8s-SLN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="utK-8s-SLN" firstAttribute="trailing" secondItem="Oo9-DW-lsh" secondAttribute="trailing" constant="20" id="6SK-7B-Ejn"/>
+                            <constraint firstItem="utK-8s-SLN" firstAttribute="trailing" secondItem="Oo9-DW-lsh" secondAttribute="trailing" constant="8" id="6SK-7B-Ejn"/>
                             <constraint firstAttribute="trailing" secondItem="Pgb-Jn-8u4" secondAttribute="trailing" constant="20" id="E8g-ZE-dAy"/>
                             <constraint firstItem="0o9-5C-vLs" firstAttribute="top" secondItem="utK-8s-SLN" secondAttribute="top" id="ER0-Te-VOO"/>
                             <constraint firstItem="Oo9-DW-lsh" firstAttribute="top" secondItem="Pgb-Jn-8u4" secondAttribute="bottom" constant="20" id="FVd-5c-tyd"/>
@@ -1404,7 +1530,7 @@ other maps for cities.</string>
                             <constraint firstItem="Pgb-Jn-8u4" firstAttribute="top" secondItem="0o9-5C-vLs" secondAttribute="bottom" constant="20" id="VuJ-Ul-iMz"/>
                             <constraint firstItem="0o9-5C-vLs" firstAttribute="top" secondItem="Lc0-To-RbM" secondAttribute="bottom" id="YFA-5z-0Pv"/>
                             <constraint firstItem="0o9-5C-vLs" firstAttribute="leading" secondItem="utK-8s-SLN" secondAttribute="leading" id="bLh-9s-WdM"/>
-                            <constraint firstItem="Oo9-DW-lsh" firstAttribute="leading" secondItem="utK-8s-SLN" secondAttribute="leading" constant="20" id="fLF-AH-vfl"/>
+                            <constraint firstItem="Oo9-DW-lsh" firstAttribute="leading" secondItem="utK-8s-SLN" secondAttribute="leading" constant="8" id="fLF-AH-vfl"/>
                             <constraint firstItem="0o9-5C-vLs" firstAttribute="top" secondItem="Lc0-To-RbM" secondAttribute="bottom" id="lCG-8t-Hm6"/>
                             <constraint firstItem="Pgb-Jn-8u4" firstAttribute="leading" secondItem="utK-8s-SLN" secondAttribute="leading" constant="20" id="mCQ-Ws-1WN"/>
                             <constraint firstItem="Lc0-To-RbM" firstAttribute="top" secondItem="7aE-MM-9Hx" secondAttribute="top" id="pmn-QO-8NW"/>
@@ -1436,7 +1562,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COX-GC-iIA">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -2351,7 +2477,7 @@ other maps for cities.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2I-oa-66J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4686.9565217391309" y="3014.6739130434785"/>
+            <point key="canvasLocation" x="4681" y="3020"/>
         </scene>
         <!--Offers-->
         <scene sceneID="kZi-EW-rOW">
@@ -2370,7 +2496,7 @@ other maps for cities.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNU-ZK-fGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3817" y="3019"/>
+            <point key="canvasLocation" x="3806" y="3016"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="Bvr-8J-WZs">
@@ -2407,7 +2533,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qh-3w-IaV">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -2482,7 +2608,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-gE-YnI">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -2617,7 +2743,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P7-Hc-WI3">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -3127,6 +3253,7 @@ other maps for cities.</string>
                         <outlet property="btn_DOBOt" destination="jhh-oX-GXv" id="kgA-dw-xSK"/>
                         <outlet property="btn_ImagePickerOt" destination="CB6-nh-laa" id="Crc-Hv-Ki7"/>
                         <outlet property="btn_SelectGenderOt" destination="pci-Oo-nV7" id="e7E-JC-TAi"/>
+                        <outlet property="lbl_FullName" destination="mX5-Em-CLm" id="APS-KU-f7u"/>
                         <outlet property="lbl_NavigationTitle" destination="dOQ-G9-KDw" id="AIT-IG-C87"/>
                         <outlet property="txt_CountryPicker" destination="cMD-1r-OAv" id="Sff-Z3-WGZ"/>
                         <outlet property="txt_Email" destination="sEy-tH-ySK" id="05O-Up-x0D"/>
@@ -3155,7 +3282,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgT-J2-Lou">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -3215,7 +3342,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaN-qT-z42">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -3290,7 +3417,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d51-aO-KSV">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -3379,7 +3506,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-CM-jQ0">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -3412,8 +3539,65 @@ other maps for cities.</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="puG-Q8-pPy">
                                                 <rect key="frame" x="20" y="40" width="374" height="474"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-uw-2K4">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROz-5i-zeX">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5H-Lz-WTD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-Px-Wcj">
+                                                                <rect key="frame" x="0.0" y="31" width="374" height="44"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lC-gB-Dbj">
+                                                                        <rect key="frame" x="10" y="0.0" width="354" height="44"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <state key="normal" title="India">
+                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="btn_MapType:" destination="xOz-T9-sCq" eventType="touchUpInside" id="rAJ-Pd-t2n"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="4lC-gB-Dbj" firstAttribute="top" secondItem="Ale-Px-Wcj" secondAttribute="top" id="8LE-oW-dK1"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="4lC-gB-Dbj" secondAttribute="bottom" id="8xf-Af-FjJ"/>
+                                                                    <constraint firstItem="4lC-gB-Dbj" firstAttribute="leading" secondItem="Ale-Px-Wcj" secondAttribute="leading" constant="10" id="Rpz-wB-mXw"/>
+                                                                    <constraint firstAttribute="height" constant="44" id="kpg-hf-UlC"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="4lC-gB-Dbj" secondAttribute="trailing" constant="10" id="l9I-LZ-qop"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" systemColor="separatorColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Ale-Px-Wcj" firstAttribute="top" secondItem="f5H-Lz-WTD" secondAttribute="bottom" constant="8" id="0S8-9L-xFS"/>
+                                                            <constraint firstItem="f5H-Lz-WTD" firstAttribute="top" secondItem="ROz-5i-zeX" secondAttribute="top" id="87z-Vg-oQg"/>
+                                                            <constraint firstItem="Ale-Px-Wcj" firstAttribute="leading" secondItem="ROz-5i-zeX" secondAttribute="leading" id="9yq-sM-Gpf"/>
+                                                            <constraint firstItem="f5H-Lz-WTD" firstAttribute="leading" secondItem="ROz-5i-zeX" secondAttribute="leading" id="MwL-xs-DOf"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Ale-Px-Wcj" secondAttribute="bottom" id="R9H-63-R0I"/>
+                                                            <constraint firstAttribute="height" constant="75" id="e6G-1p-kdf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Ale-Px-Wcj" secondAttribute="trailing" id="hQ8-lG-4Wg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="f5H-Lz-WTD" secondAttribute="trailing" id="imI-29-CCp"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-uw-2K4">
+                                                        <rect key="frame" x="0.0" y="90" width="374" height="75"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The name of the map:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPx-Bu-C0D">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -3463,57 +3647,6 @@ other maps for cities.</string>
                                                             <constraint firstItem="lYu-8e-f2F" firstAttribute="leading" secondItem="dh7-uw-2K4" secondAttribute="leading" id="qL1-bG-eEw"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROz-5i-zeX">
-                                                        <rect key="frame" x="0.0" y="90" width="374" height="75"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5H-Lz-WTD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
-                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-Px-Wcj">
-                                                                <rect key="frame" x="0.0" y="31" width="374" height="44"/>
-                                                                <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Map Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTg-Vm-9AP">
-                                                                        <rect key="frame" x="10" y="0.0" width="354" height="44"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstItem="aTg-Vm-9AP" firstAttribute="leading" secondItem="Ale-Px-Wcj" secondAttribute="leading" constant="10" id="Ha5-ch-mmF"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="aTg-Vm-9AP" secondAttribute="bottom" id="kIS-cB-cAd"/>
-                                                                    <constraint firstAttribute="height" constant="44" id="kpg-hf-UlC"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="aTg-Vm-9AP" secondAttribute="trailing" constant="10" id="r4S-wf-jwH"/>
-                                                                    <constraint firstItem="aTg-Vm-9AP" firstAttribute="top" secondItem="Ale-Px-Wcj" secondAttribute="top" id="ro5-UP-qCM"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="10"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                        <real key="value" value="0.5"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" systemColor="separatorColor"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </view>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="Ale-Px-Wcj" firstAttribute="top" secondItem="f5H-Lz-WTD" secondAttribute="bottom" constant="8" id="0S8-9L-xFS"/>
-                                                            <constraint firstItem="f5H-Lz-WTD" firstAttribute="top" secondItem="ROz-5i-zeX" secondAttribute="top" id="87z-Vg-oQg"/>
-                                                            <constraint firstItem="Ale-Px-Wcj" firstAttribute="leading" secondItem="ROz-5i-zeX" secondAttribute="leading" id="9yq-sM-Gpf"/>
-                                                            <constraint firstItem="f5H-Lz-WTD" firstAttribute="leading" secondItem="ROz-5i-zeX" secondAttribute="leading" id="MwL-xs-DOf"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Ale-Px-Wcj" secondAttribute="bottom" id="R9H-63-R0I"/>
-                                                            <constraint firstAttribute="height" constant="75" id="e6G-1p-kdf"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Ale-Px-Wcj" secondAttribute="trailing" id="hQ8-lG-4Wg"/>
-                                                            <constraint firstAttribute="trailing" secondItem="f5H-Lz-WTD" secondAttribute="trailing" id="imI-29-CCp"/>
-                                                        </constraints>
-                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOj-Xt-efF">
                                                         <rect key="frame" x="0.0" y="180" width="374" height="75"/>
                                                         <subviews>
@@ -3526,19 +3659,21 @@ other maps for cities.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMi-V2-QPv">
                                                                 <rect key="frame" x="0.0" y="31" width="374" height="44"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qg-qN-Sew">
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-E6-OJZ">
                                                                         <rect key="frame" x="10" y="0.0" width="354" height="44"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <color key="textColor" systemColor="labelColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    </textView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="44" id="80T-WE-ScA"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="6qg-qN-Sew" secondAttribute="bottom" id="Nnl-yS-8At"/>
-                                                                    <constraint firstItem="6qg-qN-Sew" firstAttribute="top" secondItem="jMi-V2-QPv" secondAttribute="top" id="U0i-MT-zmw"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="6qg-qN-Sew" secondAttribute="trailing" constant="10" id="Wbh-NJ-ZU2"/>
-                                                                    <constraint firstItem="6qg-qN-Sew" firstAttribute="leading" secondItem="jMi-V2-QPv" secondAttribute="leading" constant="10" id="lsp-0j-fxW"/>
+                                                                    <constraint firstItem="hmk-E6-OJZ" firstAttribute="top" secondItem="jMi-V2-QPv" secondAttribute="top" id="IbW-8v-xQZ"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="hmk-E6-OJZ" secondAttribute="bottom" id="UYu-t0-f8V"/>
+                                                                    <constraint firstItem="hmk-E6-OJZ" firstAttribute="leading" secondItem="jMi-V2-QPv" secondAttribute="leading" constant="10" id="YYj-GA-W23"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="hmk-E6-OJZ" secondAttribute="trailing" constant="10" id="yXC-bS-vza"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3630,6 +3765,9 @@ other maps for cities.</string>
                                                                         </constraints>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" image="RectangleUncheck"/>
+                                                                        <connections>
+                                                                            <action selector="btn_ConfirmTripByCNRM:" destination="xOz-T9-sCq" eventType="touchUpInside" id="LQo-fw-bad"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A trip by Cineramamap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu4-LA-TsT">
                                                                         <rect key="frame" x="34.000000000000007" y="6.6666666666666856" width="125.66666666666669" height="16.666666666666668"/>
@@ -3708,6 +3846,14 @@ other maps for cities.</string>
                             <constraint firstItem="MjX-Ci-loV" firstAttribute="trailing" secondItem="MdU-X8-pXw" secondAttribute="trailing" id="vm4-IE-6Kr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn_ByCNRMOt" destination="yhZ-J2-Pkn" id="hnv-Xd-sug"/>
+                        <outlet property="btn_CreateAndUpdate" destination="X5z-X3-OCl" id="Oo4-G7-YHq"/>
+                        <outlet property="btn_DropOt" destination="4lC-gB-Dbj" id="kC2-li-d9r"/>
+                        <outlet property="txt_Address" destination="hmk-E6-OJZ" id="m3U-BG-cMn"/>
+                        <outlet property="txt_HowManyDays" destination="eJ7-2E-N8B" id="42o-qR-QZs"/>
+                        <outlet property="txt_MapName" destination="Keg-eO-3IL" id="WxN-XX-Bpc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDg-pQ-qRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3729,7 +3875,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppd-84-ZHD">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -4047,7 +4193,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biR-j7-5EK">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -4170,6 +4316,8 @@ other maps for cities.</string>
                     </view>
                     <connections>
                         <outlet property="city_MapTableVw" destination="6Tg-En-PMC" id="hcX-NS-9Bt"/>
+                        <outlet property="lbl_CountryMapHeading" destination="alU-wK-Tcv" id="X2A-AA-lce"/>
+                        <outlet property="lbl_CountryRepublicText" destination="Js8-mZ-Dle" id="F1n-Xm-JB2"/>
                         <outlet property="search_Bar" destination="IVf-0y-vgR" id="F72-PH-YCO"/>
                     </connections>
                 </viewController>
@@ -4193,7 +4341,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lck-zB-Ft5">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -4221,7 +4369,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="60" width="414" height="676"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TS-td-leH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1033.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1824.6666666666667"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapdetailimg" translatesAutoresizingMaskIntoConstraints="NO" id="xDc-kP-QFZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -4230,22 +4378,35 @@ other maps for cities.</string>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvF-I7-yyf">
-                                                <rect key="frame" x="0.0" y="260.00000000000006" width="414" height="693.33333333333348"/>
+                                                <rect key="frame" x="0.0" y="260" width="414" height="1484.6666666666667"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Istanbul Map 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-Ec-bPW">
-                                                        <rect key="frame" x="15.000000000000014" y="15.000000000000002" width="228.33333333333337" height="20.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39 riyals per month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwh-Ky-wiz">
-                                                        <rect key="frame" x="253.33333333333337" y="15" width="145.66666666666663" height="22"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                                        <color key="textColor" name="Main"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYR-Me-g6x">
+                                                        <rect key="frame" x="15" y="15" width="384" height="26"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Istanbul Map 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-Ec-bPW">
+                                                                <rect key="frame" x="0.0" y="2.6666666666666856" width="104.66666666666667" height="20.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39 riyals per month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwh-Ky-wiz">
+                                                                <rect key="frame" x="238.33333333333337" y="2" width="145.66666666666663" height="22"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                                <color key="textColor" name="Main"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="qwh-Ky-wiz" secondAttribute="trailing" id="Oox-iF-XzZ"/>
+                                                            <constraint firstItem="qwh-Ky-wiz" firstAttribute="centerY" secondItem="OYR-Me-g6x" secondAttribute="centerY" id="PHA-Bg-C1V"/>
+                                                            <constraint firstItem="cNk-Ec-bPW" firstAttribute="leading" secondItem="OYR-Me-g6x" secondAttribute="leading" id="oor-iq-E99"/>
+                                                            <constraint firstAttribute="height" constant="26" id="yLT-L9-gMg"/>
+                                                            <constraint firstItem="cNk-Ec-bPW" firstAttribute="centerY" secondItem="OYR-Me-g6x" secondAttribute="centerY" id="zoX-q2-zwT"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMy-5d-ayq">
-                                                        <rect key="frame" x="15" y="43.666666666666686" width="384" height="36"/>
+                                                        <rect key="frame" x="15" y="49" width="384" height="36"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-du-2Md">
                                                                 <rect key="frame" x="0.0" y="10" width="140" height="16"/>
@@ -4299,42 +4460,43 @@ other maps for cities.</string>
                                                                     <constraint firstAttribute="height" constant="16" id="xis-l4-0x8"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkey, Istanbul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6X-3L-jJp">
-                                                                <rect key="frame" x="289.33333333333331" y="0.0" width="84.666666666666686" height="36"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkey, Istanbul" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6X-3L-jJp">
+                                                                <rect key="frame" x="160" y="0.0" width="200" height="36"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_pin1" translatesAutoresizingMaskIntoConstraints="NO" id="YDs-kV-PKB">
-                                                                <rect key="frame" x="263.33333333333331" y="9" width="18" height="18"/>
+                                                                <rect key="frame" x="366" y="9" width="18" height="18"/>
                                                                 <color key="tintColor" name="Main"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="18" id="6ZO-Gi-3gQ"/>
-                                                                    <constraint firstAttribute="width" constant="18" id="RrY-W6-c3T"/>
+                                                                    <constraint firstAttribute="width" constant="18" id="1s7-2n-Vh6"/>
+                                                                    <constraint firstAttribute="height" constant="18" id="lZ7-Aa-ZRE"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="S6X-3L-jJp" secondAttribute="bottom" id="4AJ-T9-4eS"/>
-                                                            <constraint firstAttribute="trailing" secondItem="S6X-3L-jJp" secondAttribute="trailing" constant="10" id="8Xp-Q7-E18"/>
-                                                            <constraint firstItem="S6X-3L-jJp" firstAttribute="leading" secondItem="YDs-kV-PKB" secondAttribute="trailing" constant="8" id="Tvo-cX-Izc"/>
-                                                            <constraint firstItem="S6X-3L-jJp" firstAttribute="top" secondItem="sMy-5d-ayq" secondAttribute="top" id="ZTV-7e-Dd0"/>
-                                                            <constraint firstItem="YDs-kV-PKB" firstAttribute="centerY" secondItem="sMy-5d-ayq" secondAttribute="centerY" id="hrO-DG-wb8"/>
+                                                            <constraint firstItem="S6X-3L-jJp" firstAttribute="leading" secondItem="RO8-du-2Md" secondAttribute="trailing" constant="20" id="BYx-af-eaK"/>
+                                                            <constraint firstItem="YDs-kV-PKB" firstAttribute="centerY" secondItem="sMy-5d-ayq" secondAttribute="centerY" id="SaX-dO-i4E"/>
+                                                            <constraint firstItem="S6X-3L-jJp" firstAttribute="top" secondItem="sMy-5d-ayq" secondAttribute="top" id="Tkh-wn-HcN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YDs-kV-PKB" secondAttribute="trailing" id="hJl-XF-bng"/>
                                                             <constraint firstItem="RO8-du-2Md" firstAttribute="centerY" secondItem="sMy-5d-ayq" secondAttribute="centerY" id="j1W-HB-3PN"/>
+                                                            <constraint firstItem="YDs-kV-PKB" firstAttribute="leading" secondItem="S6X-3L-jJp" secondAttribute="trailing" constant="6" id="jvK-3M-YNS"/>
+                                                            <constraint firstAttribute="bottom" secondItem="S6X-3L-jJp" secondAttribute="bottom" id="pe3-CV-Su7"/>
                                                             <constraint firstItem="RO8-du-2Md" firstAttribute="leading" secondItem="sMy-5d-ayq" secondAttribute="leading" id="tRW-WI-moS"/>
                                                             <constraint firstAttribute="height" constant="36" id="wv1-9B-Sp6"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="f77-TW-nPh" userLabel="ButtonActionsVw">
-                                                        <rect key="frame" x="15" y="89.666666666666686" width="384" height="50"/>
+                                                        <rect key="frame" x="15" y="95" width="384" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONM-u4-eU1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="50"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcC-FN-gFL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="49.333333333333336"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="10"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="11"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="ABOUT THE MAP">
                                                                             <color key="titleColor" red="0.0" green="0.50980392156862742" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4370,7 +4532,7 @@ other maps for cities.</string>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm9-wt-rK9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="49.333333333333336"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="PLACES">
                                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4406,9 +4568,9 @@ other maps for cities.</string>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljO-ZP-TgD">
                                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="49.333333333333336"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="Reviews">
+                                                                        <state key="normal" title="REVIEW">
                                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
@@ -4442,7 +4604,7 @@ other maps for cities.</string>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRr-Ra-NRi">
                                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="49.333333333333336"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="IMAGES">
                                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4482,7 +4644,7 @@ other maps for cities.</string>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ezb-jI-jAA" userLabel="All Details View">
-                                                        <rect key="frame" x="20" y="154.66666666666669" width="374" height="518.66666666666652"/>
+                                                        <rect key="frame" x="20" y="160" width="374" height="1324.6666666666667"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LS1-MA-Ies">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="518.66666666666663"/>
@@ -4500,13 +4662,13 @@ other maps for cities.</string>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-8q-PmZ">
-                                                                        <rect key="frame" x="0.0" y="66.666666666666686" width="374" height="22"/>
+                                                                        <rect key="frame" x="0.0" y="66.666666666666629" width="374" height="22"/>
                                                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CJZ-8g-vdu">
-                                                                        <rect key="frame" x="0.0" y="103.66666666666669" width="374" height="298.66666666666669"/>
+                                                                        <rect key="frame" x="0.0" y="103.66666666666663" width="374" height="298.66666666666669"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5ZF-sh-OhW">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="75.666666666666671"/>
@@ -4534,7 +4696,7 @@ other maps for cities.</string>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkish lira 1 dollar = 20 lira" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwQ-Z2-mFi">
-                                                                                                        <rect key="frame" x="0.0" y="22.666666666666629" width="133" height="33"/>
+                                                                                                        <rect key="frame" x="0.0" y="22.666666666666742" width="133" height="33"/>
                                                                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -4596,13 +4758,13 @@ other maps for cities.</string>
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dYl-rj-Ubx">
-                                                                                <rect key="frame" x="0.0" y="85.666666666666629" width="374" height="58.666666666666657"/>
+                                                                                <rect key="frame" x="0.0" y="85.666666666666742" width="374" height="58.666666666666657"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeQ-aO-aHo">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="58.666666666666664"/>
                                                                                         <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothicon" translatesAutoresizingMaskIntoConstraints="NO" id="2gG-Zl-Ccu">
-                                                                                                <rect key="frame" x="0.0" y="9.3333333333333712" width="40" height="40"/>
+                                                                                                <rect key="frame" x="0.0" y="9.3333333333332575" width="40" height="40"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="40" id="UST-l6-HAQ"/>
                                                                                                     <constraint firstAttribute="height" constant="40" id="c4f-Dt-ofk"/>
@@ -4643,7 +4805,7 @@ other maps for cities.</string>
                                                                                         <rect key="frame" x="191" y="0.0" width="183" height="58.666666666666664"/>
                                                                                         <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendericonnew" translatesAutoresizingMaskIntoConstraints="NO" id="kAJ-Jh-SJy">
-                                                                                                <rect key="frame" x="0.0" y="9.3333333333333712" width="40" height="40"/>
+                                                                                                <rect key="frame" x="0.0" y="9.3333333333332575" width="40" height="40"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="40" id="Eg2-HB-nbx"/>
                                                                                                     <constraint firstAttribute="width" constant="40" id="SAk-lO-91d"/>
@@ -4683,7 +4845,7 @@ other maps for cities.</string>
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pQ0-Xj-ExT">
-                                                                                <rect key="frame" x="0.0" y="154.33333333333326" width="374" height="58.666666666666657"/>
+                                                                                <rect key="frame" x="0.0" y="154.33333333333337" width="374" height="58.666666666666657"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0F-yw-eZw">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="58.666666666666664"/>
@@ -4795,7 +4957,7 @@ other maps for cities.</string>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkish Technology Company" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-nh-3kb">
-                                                                                                        <rect key="frame" x="0.0" y="22.666666666666629" width="133" height="33"/>
+                                                                                                        <rect key="frame" x="0.0" y="22.666666666666742" width="133" height="33"/>
                                                                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -4836,7 +4998,7 @@ other maps for cities.</string>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempreture 22 degree celsius" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-nq-k3D">
-                                                                                                        <rect key="frame" x="0.0" y="22.666666666666629" width="133" height="33"/>
+                                                                                                        <rect key="frame" x="0.0" y="22.666666666666742" width="133" height="33"/>
                                                                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -4859,13 +5021,13 @@ other maps for cities.</string>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Har-QT-iR4">
-                                                                        <rect key="frame" x="0.0" y="422.33333333333331" width="374" height="22"/>
+                                                                        <rect key="frame" x="0.0" y="422.33333333333337" width="374" height="22"/>
                                                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-nN-rhA">
-                                                                        <rect key="frame" x="0.0" y="459.33333333333331" width="374" height="59.333333333333314"/>
+                                                                        <rect key="frame" x="0.0" y="459.33333333333337" width="374" height="59.333333333333371"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSk-mY-hXX">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="59.333333333333336"/>
@@ -4975,28 +5137,124 @@ other maps for cities.</string>
                                                                     <constraint firstItem="fz3-bn-Iy6" firstAttribute="leading" secondItem="LS1-MA-Ies" secondAttribute="leading" id="x9k-NI-7n2"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2C-8j-dpT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2C-8j-dpT">
+                                                                <rect key="frame" x="0.0" y="518.66666666666663" width="374" height="305.33333333333337"/>
                                                                 <subviews>
-                                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ish-vx-0x1">
-                                                                        <rect key="frame" x="0.33333333333334281" y="0.33333333333331439" width="373.33333333333326" height="249.66666666666666"/>
-                                                                        <standardMapConfiguration key="preferredConfiguration"/>
-                                                                    </mapView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="62v-dj-3oB">
+                                                                        <rect key="frame" x="0.33333333333334281" y="0.33333333333337123" width="373.33333333333326" height="305"/>
+                                                                        <subviews>
+                                                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ish-vx-0x1">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="373.33333333333331" height="220"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="220" id="izu-sJ-Gs1"/>
+                                                                                </constraints>
+                                                                                <standardMapConfiguration key="preferredConfiguration"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                        <real key="value" value="0.5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                        <color key="value" name="5063BF"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="8"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="oMH-fJ-yiY" id="IQI-VL-Lcq"/>
+                                                                                </connections>
+                                                                            </mapView>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcO-7d-XLv">
+                                                                                <rect key="frame" x="0.0" y="230" width="373.33333333333331" height="75"/>
+                                                                                <subviews>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPT-oL-kUB">
+                                                                                        <rect key="frame" x="8" y="8" width="357.33333333333331" height="20"/>
+                                                                                        <subviews>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pls-hY-2xW">
+                                                                                                <rect key="frame" x="0.0" y="0.33333333333325754" width="38" height="19.333333333333332"/>
+                                                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                                                                                <nil key="textColor"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZS-t1-YbC">
+                                                                                                <rect key="frame" x="337.33333333333337" y="0.0" width="20" height="20"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="height" constant="20" id="dL8-J7-vbq"/>
+                                                                                                    <constraint firstAttribute="width" constant="20" id="rgD-OX-3mF"/>
+                                                                                                </constraints>
+                                                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                                <state key="normal" image="crossicon"/>
+                                                                                                <connections>
+                                                                                                    <action selector="btn_ClosePlaceDt:" destination="oMH-fJ-yiY" eventType="touchUpInside" id="O8B-gD-wc4"/>
+                                                                                                </connections>
+                                                                                            </button>
+                                                                                        </subviews>
+                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="20" id="Jkp-K2-nX0"/>
+                                                                                            <constraint firstItem="pls-hY-2xW" firstAttribute="centerY" secondItem="BPT-oL-kUB" secondAttribute="centerY" id="PHW-NJ-oOr"/>
+                                                                                            <constraint firstItem="WZS-t1-YbC" firstAttribute="centerY" secondItem="BPT-oL-kUB" secondAttribute="centerY" id="XnW-0W-kdW"/>
+                                                                                            <constraint firstItem="pls-hY-2xW" firstAttribute="leading" secondItem="BPT-oL-kUB" secondAttribute="leading" id="Yk9-ap-W0Y"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="WZS-t1-YbC" secondAttribute="trailing" id="w7L-nk-ezp"/>
+                                                                                        </constraints>
+                                                                                    </view>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapi" translatesAutoresizingMaskIntoConstraints="NO" id="scv-Ni-zXt">
+                                                                                        <rect key="frame" x="8" y="36" width="18" height="18"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="18" id="DaH-OL-kTm"/>
+                                                                                            <constraint firstAttribute="height" constant="18" id="n1O-E5-m7z"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRH5+M42, Depalpur Rd, Devi Ahillyabai Holkar Airport Area, Indore, Madhya Pradesh 452005, India" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwB-9u-HPp">
+                                                                                        <rect key="frame" x="32" y="36" width="335.33333333333331" height="33"/>
+                                                                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="BPT-oL-kUB" firstAttribute="leading" secondItem="BcO-7d-XLv" secondAttribute="leading" constant="8" id="EqP-8Z-zSj"/>
+                                                                                    <constraint firstItem="scv-Ni-zXt" firstAttribute="top" secondItem="BPT-oL-kUB" secondAttribute="bottom" constant="8" id="JwM-kv-jEt"/>
+                                                                                    <constraint firstItem="mwB-9u-HPp" firstAttribute="leading" secondItem="scv-Ni-zXt" secondAttribute="trailing" constant="6" id="LfX-RX-xha"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="mwB-9u-HPp" secondAttribute="trailing" constant="6" id="PLJ-5n-CSh"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="BPT-oL-kUB" secondAttribute="trailing" constant="8" id="Wcd-1w-y1s"/>
+                                                                                    <constraint firstItem="scv-Ni-zXt" firstAttribute="leading" secondItem="BcO-7d-XLv" secondAttribute="leading" constant="8" id="b3d-Mj-Nkk"/>
+                                                                                    <constraint firstItem="mwB-9u-HPp" firstAttribute="top" secondItem="BPT-oL-kUB" secondAttribute="bottom" constant="8" id="fpc-Y6-hq7"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="mwB-9u-HPp" secondAttribute="bottom" constant="6" id="jLv-Bm-RvT"/>
+                                                                                    <constraint firstItem="BPT-oL-kUB" firstAttribute="top" secondItem="BcO-7d-XLv" secondAttribute="top" constant="8" id="vgD-4y-kdX"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="8"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                        <real key="value" value="0.5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                        <size key="value" width="1" height="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                                        <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="250" id="8rn-yc-16R"/>
-                                                                    <constraint firstItem="Ish-vx-0x1" firstAttribute="leading" secondItem="g2C-8j-dpT" secondAttribute="leading" constant="0.10000000000000001" id="C7s-1E-srs"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="Ish-vx-0x1" secondAttribute="bottom" constant="0.10000000000000001" id="G7w-E5-erV"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Ish-vx-0x1" secondAttribute="trailing" constant="0.10000000000000001" id="fhM-Rt-xBz"/>
-                                                                    <constraint firstItem="Ish-vx-0x1" firstAttribute="top" secondItem="g2C-8j-dpT" secondAttribute="top" constant="0.10000000000000001" id="qVL-TR-0Qu"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="62v-dj-3oB" secondAttribute="bottom" constant="0.10000000000000001" id="Lgc-FA-qa4"/>
+                                                                    <constraint firstItem="62v-dj-3oB" firstAttribute="leading" secondItem="g2C-8j-dpT" secondAttribute="leading" constant="0.10000000000000001" id="Wo9-Cj-kDP"/>
+                                                                    <constraint firstItem="62v-dj-3oB" firstAttribute="top" secondItem="g2C-8j-dpT" secondAttribute="top" constant="0.10000000000000001" id="mX9-Rz-GLN"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="62v-dj-3oB" secondAttribute="trailing" constant="0.10000000000000001" id="zKA-fv-5M2"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eo0-iz-UHo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="250.33333333333334"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eo0-iz-UHo">
+                                                                <rect key="frame" x="0.0" y="824" width="374" height="250.33333333333326"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-Fa-CCo">
-                                                                        <rect key="frame" x="0.33333333333334281" y="0.33333333333331439" width="373.33333333333326" height="250"/>
+                                                                        <rect key="frame" x="0.33333333333334281" y="0.33333333333325754" width="373.33333333333326" height="250"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="250" id="NQm-hj-TaT"/>
@@ -5015,11 +5273,11 @@ other maps for cities.</string>
                                                                     <constraint firstItem="f8i-Fa-CCo" firstAttribute="leading" secondItem="eo0-iz-UHo" secondAttribute="leading" constant="0.10000000000000001" id="rDO-Vc-SIu"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1v-kf-NJW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="250.33333333333334"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1v-kf-NJW">
+                                                                <rect key="frame" x="0.0" y="1074.3333333333333" width="374" height="250.33333333333326"/>
                                                                 <subviews>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OCI-cg-9FX">
-                                                                        <rect key="frame" x="0.33333333333334281" y="0.33333333333331439" width="373.33333333333326" height="250"/>
+                                                                        <rect key="frame" x="0.33333333333334281" y="0.0" width="373.33333333333326" height="250"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="250" id="eyT-Xd-3ec"/>
@@ -5051,19 +5309,17 @@ other maps for cities.</string>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="f77-TW-nPh" firstAttribute="top" secondItem="sMy-5d-ayq" secondAttribute="bottom" constant="10" id="0E2-Hw-MSb"/>
-                                                    <constraint firstItem="qwh-Ky-wiz" firstAttribute="leading" secondItem="cNk-Ec-bPW" secondAttribute="trailing" constant="10" id="3xk-G0-8gY"/>
-                                                    <constraint firstItem="sMy-5d-ayq" firstAttribute="top" secondItem="cNk-Ec-bPW" secondAttribute="bottom" constant="8" id="7tI-4y-vrR"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Ezb-jI-jAA" secondAttribute="bottom" constant="20" id="9NJ-h2-sM6"/>
-                                                    <constraint firstItem="qwh-Ky-wiz" firstAttribute="top" secondItem="LvF-I7-yyf" secondAttribute="top" constant="15" id="AM3-Oc-ji4"/>
+                                                    <constraint firstItem="OYR-Me-g6x" firstAttribute="top" secondItem="LvF-I7-yyf" secondAttribute="top" constant="15" id="80z-Yg-Zt2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ezb-jI-jAA" secondAttribute="bottom" id="9NJ-h2-sM6"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ezb-jI-jAA" secondAttribute="trailing" constant="20" id="BfI-Q4-wLR"/>
-                                                    <constraint firstItem="cNk-Ec-bPW" firstAttribute="top" secondItem="LvF-I7-yyf" secondAttribute="top" constant="15" id="BxJ-jB-HnG"/>
                                                     <constraint firstItem="f77-TW-nPh" firstAttribute="leading" secondItem="LvF-I7-yyf" secondAttribute="leading" constant="15" id="CTR-Ho-DqR"/>
                                                     <constraint firstItem="Ezb-jI-jAA" firstAttribute="leading" secondItem="LvF-I7-yyf" secondAttribute="leading" constant="20" id="Mz8-Tq-F9s"/>
                                                     <constraint firstItem="sMy-5d-ayq" firstAttribute="leading" secondItem="LvF-I7-yyf" secondAttribute="leading" constant="15" id="WWd-kb-JU4"/>
                                                     <constraint firstAttribute="trailing" secondItem="f77-TW-nPh" secondAttribute="trailing" constant="15" id="Z4K-i7-YYj"/>
-                                                    <constraint firstItem="cNk-Ec-bPW" firstAttribute="leading" secondItem="LvF-I7-yyf" secondAttribute="leading" constant="15" id="gQ9-L0-6kh"/>
+                                                    <constraint firstItem="sMy-5d-ayq" firstAttribute="top" secondItem="OYR-Me-g6x" secondAttribute="bottom" constant="8" id="hQW-EG-JSK"/>
+                                                    <constraint firstItem="OYR-Me-g6x" firstAttribute="leading" secondItem="LvF-I7-yyf" secondAttribute="leading" constant="15" id="ooK-1w-L24"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OYR-Me-g6x" secondAttribute="trailing" constant="15" id="pzS-Ec-gQ0"/>
                                                     <constraint firstItem="Ezb-jI-jAA" firstAttribute="top" secondItem="f77-TW-nPh" secondAttribute="bottom" constant="15" id="qlk-UV-P89"/>
-                                                    <constraint firstAttribute="trailing" secondItem="qwh-Ky-wiz" secondAttribute="trailing" constant="15" id="rTa-HZ-QhH"/>
                                                     <constraint firstAttribute="trailing" secondItem="sMy-5d-ayq" secondAttribute="trailing" constant="15" id="rUe-Yf-oHF"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -5149,7 +5405,7 @@ other maps for cities.</string>
                         <outlet property="labelLine3" destination="0xL-sV-JbF" id="buS-eM-JOK"/>
                         <outlet property="labelLine4" destination="fV4-NO-Gpx" id="cW4-np-IOh"/>
                         <outlet property="lbl_AboutCity" destination="fz3-bn-Iy6" id="UI0-ze-m15"/>
-                        <outlet property="lbl_Amount" destination="qwh-Ky-wiz" id="i1y-Zc-fTs"/>
+                        <outlet property="lbl_Amount" destination="qwh-Ky-wiz" id="Gi3-mK-qRk"/>
                         <outlet property="lbl_CityAddress" destination="S6X-3L-jJp" id="1rG-wY-6Cp"/>
                         <outlet property="lbl_CityNAme" destination="cNk-Ec-bPW" id="OGc-9l-obe"/>
                         <outlet property="lbl_Clothing" destination="0dI-4y-0Vg" id="vOs-kw-N1G"/>
@@ -5158,11 +5414,14 @@ other maps for cities.</string>
                         <outlet property="lbl_ElectricSocket" destination="qM8-gX-SN3" id="qM4-sC-Uuo"/>
                         <outlet property="lbl_Health" destination="tQl-RP-Pve" id="rtb-7z-zIb"/>
                         <outlet property="lbl_Language" destination="uM2-4e-n3Q" id="dL3-6p-Q26"/>
+                        <outlet property="lbl_PlaceAddress" destination="mwB-9u-HPp" id="8WM-cF-efG"/>
+                        <outlet property="lbl_PlaceName" destination="pls-hY-2xW" id="3tP-DW-p9Z"/>
                         <outlet property="lbl_PoliceCarNum" destination="h8p-2I-gMn" id="t1M-1k-Uy9"/>
                         <outlet property="lbl_PolicePhoneNum" destination="u0J-uy-4Kv" id="LkE-95-AI5"/>
                         <outlet property="lbl_RatingReview" destination="cOy-fh-oox" id="te9-3G-tmC"/>
                         <outlet property="lbl_Timing" destination="f24-PT-KZf" id="Chp-Li-iQY"/>
                         <outlet property="lbl_Weather" destination="jEz-nq-k3D" id="kAW-eE-UOQ"/>
+                        <outlet property="locationAddress_Vw" destination="BcO-7d-XLv" id="5d2-nH-qLt"/>
                         <outlet property="mapView" destination="Ish-vx-0x1" id="rRi-CA-5GE"/>
                         <outlet property="map_Vw" destination="g2C-8j-dpT" id="4iv-Dj-SX6"/>
                         <outlet property="ratingVw" destination="124-yD-cC9" id="okV-15-y8o"/>
@@ -5190,7 +5449,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5R-8S-684">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -5571,7 +5830,7 @@ other maps for cities.</string>
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5F2-zK-IhV">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -5693,7 +5952,7 @@ The same concept applies to any task or project. If you are working on a compute
                                 <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMQ-So-3zr">
-                                        <rect key="frame" x="10" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="10" y="6" width="28" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="BackRound"/>
@@ -6179,7 +6438,7 @@ The same concept applies to any task or project. If you are working on a compute
         </scene>
     </scenes>
     <resources>
-        <image name="BackRound" width="24" height="24"/>
+        <image name="BackRound" width="28" height="28"/>
         <image name="CityImage" width="375" height="173"/>
         <image name="Edit24" width="24" height="24"/>
         <image name="Fav26" width="19" height="26"/>
@@ -6213,6 +6472,7 @@ The same concept applies to any task or project. If you are working on a compute
         <image name="loginlogo" width="98" height="90"/>
         <image name="mapdetailimg" width="735" height="278"/>
         <image name="mapheadicon" width="56" height="66"/>
+        <image name="mapi" width="150" height="150"/>
         <image name="notiicon" width="24" height="24"/>
         <image name="otpimg" width="192" height="187"/>
         <image name="paymentsuccess" width="150" height="150"/>
@@ -6230,6 +6490,9 @@ The same concept applies to any task or project. If you are working on a compute
         <image name="userdemoimg" width="150" height="150"/>
         <image name="wethericon" width="150" height="150"/>
         <image name="writetous_ic" width="750" height="472"/>
+        <namedColor name="5063BF">
+            <color red="0.31372549019607843" green="0.38823529411764707" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Main">
             <color red="0.88627450980392153" green="0.36862745098039218" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

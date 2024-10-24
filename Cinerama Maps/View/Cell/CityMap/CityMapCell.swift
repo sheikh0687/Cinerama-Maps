@@ -16,6 +16,9 @@ class CityMapCell: UITableViewCell {
     @IBOutlet weak var lbl_Rating: UILabel!
     @IBOutlet weak var rating_Vw: CosmosView!
     
+    @IBOutlet weak var btn_FavOt: UIButton!
+    
+    var cloFav:(() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,4 +31,7 @@ class CityMapCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func btn_Fav(_ sender: UIButton) {
+        self.cloFav?()
+    }
 }

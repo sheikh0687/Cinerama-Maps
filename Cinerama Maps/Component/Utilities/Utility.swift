@@ -564,6 +564,33 @@ class Utility {
         region.notifyOnExit = true
         return region
     }
+    
+    class func zoomMapToAnnotations(_ map: MKMapView) {
+        if !map.annotations.isEmpty {
+            let region = self.regionThatFitsAllAnnotations(map)
+            map.setRegion(region, animated: true)
+        }
+    }
+    
+    class func regionThatFitsAllAnnotations(_ map: MKMapView) -> MKCoordinateRegion {
+        var minLat = CLLocationDegrees(100)
+        var maxLat = CLLocationDegrees(-100)
+        var minLon = CLLocationDegrees(200)
+        var maxLon = CLLocationDegrees(-200)
+        
+        for annotation in map.annotations {
+            let annotationCoordinate = annotation.coordinate
+            minLat = min(minLat, annotationCoordinate.latitude)
+            maxLat = max(maxLat, annotationCoordinate.latitude)
+            minLon = min(minLon, annotationCoordinate.longitude)
+            maxLon = max(maxLon, annotationCoordinate.longitude)
+        }
+        
+        let center = CLLocationCoordinate2D(latitude: (maxLat + minLat) / 2, longitude: (maxLon + minLon) / 2)
+        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.2, longitudeDelta: (maxLon - minLon) * 1.2)
+        
+        return MKCoordinateRegion(center: center, span: span)
+    }
 }
 
 class ScaledHeightImageView: UIImageView {

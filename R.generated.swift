@@ -2228,6 +2228,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "fav_deactive", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fav_deactive' is used in nib 'CityMapCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_pin1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_pin1' is used in nib 'CityMapCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "submapimg", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'submapimg' is used in nib 'CityMapCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
@@ -2624,6 +2625,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "loginlogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'loginlogo' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "mapdetailimg", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'mapdetailimg' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "mapheadicon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'mapheadicon' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "mapi", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'mapi' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "notiicon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'notiicon' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "otpimg", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'otpimg' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "paymentsuccess", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'paymentsuccess' is used in storyboard 'Main', but couldn't be loaded.") }
@@ -2642,6 +2644,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "wethericon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'wethericon' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "writetous_ic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'writetous_ic' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "5063BF", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named '5063BF' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "Main", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'Main' is used in storyboard 'Main', but couldn't be loaded.") }
         }
         if _R.storyboard.main().allMapsDetailVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'allMapsDetailVC' could not be loaded from storyboard 'Main' as 'AllMapsDetailVC'.") }

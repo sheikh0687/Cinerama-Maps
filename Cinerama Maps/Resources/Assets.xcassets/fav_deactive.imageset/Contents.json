@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "fav_deactive.png",
+      "filename" : "8ddd3b9bbbc9b53d443956910f947b47.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

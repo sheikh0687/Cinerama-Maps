@@ -22,18 +22,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-rW-7pZ">
                         <rect key="frame" x="2" y="8" width="288" height="136"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="zgR-2S-LaG">
-                                <rect key="frame" x="10" y="38" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="K4r-3N-8rz"/>
-                                    <constraint firstAttribute="height" constant="60" id="odL-xj-fox"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhP-0M-ad1">
                                 <rect key="frame" x="80" y="10" width="198" height="116"/>
                                 <subviews>
@@ -121,6 +109,18 @@
                                     <constraint firstAttribute="trailing" secondItem="6kX-x9-ljD" secondAttribute="trailing" id="vIw-xo-MMc"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="zgR-2S-LaG">
+                                <rect key="frame" x="10" y="38" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="K4r-3N-8rz"/>
+                                    <constraint firstAttribute="height" constant="60" id="odL-xj-fox"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -158,7 +158,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="lbl_Date" destination="FOW-DA-wMq" id="m0O-pQ-YFz"/>
+                <outlet property="lbl_Message" destination="6kX-x9-ljD" id="zO5-kC-SC7"/>
                 <outlet property="lbl_Name" destination="yxR-Jj-hxw" id="9Rr-fF-Fhh"/>
+                <outlet property="ratingCount" destination="x4h-BR-fsK" id="M2b-CN-v4z"/>
+                <outlet property="ratingStar" destination="bJE-kg-naX" id="CR5-y4-kkn"/>
+                <outlet property="user_Img" destination="zgR-2S-LaG" id="dUs-ko-gRq"/>
             </connections>
             <point key="canvasLocation" x="280.91603053435114" y="10.563380281690142"/>
         </tableViewCell>

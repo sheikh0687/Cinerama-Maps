@@ -10,6 +10,7 @@ import UIKit
 class SignupVC: UIViewController {
 
     @IBOutlet weak var lbl_NavigationTitle: UILabel!
+    @IBOutlet weak var lbl_FullName: UILabel!
     @IBOutlet weak var txt_FirstName: UITextField!
     @IBOutlet weak var txt_LastName: UITextField!
     @IBOutlet weak var txt_MobileNum: UITextField!
@@ -74,6 +75,7 @@ class SignupVC: UIViewController {
     {
         profileViewModel.requestUserProfile(vC: self)
         profileViewModel.fetchedSuccess = { [] in
+            self.lbl_FullName.text = "\(self.profileViewModel.uFirstName) \(self.profileViewModel.uLastName )"
             self.txt_FirstName.text = self.profileViewModel.uFirstName
             self.txt_LastName.text = self.profileViewModel.uLastName
             self.txt_Email.text = self.profileViewModel.uEmail

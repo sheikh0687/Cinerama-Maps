@@ -90,9 +90,9 @@ class Api: NSObject {
         }
     }
     
-    func requestCountryMap(_ vC: UIViewController,_ success: @escaping(_ responseData: [Res_CountryMap]) -> Void) {
+    func requestCountryMap(_ vC: UIViewController,_ param: [String : AnyObject],_ success: @escaping(_ responseData: [Res_CountryMap]) -> Void) {
         vC.showProgressBar()
-        Service.post(url: Router.get_country_map.url(), params: paramGetUserId(), method: .get, vc: vC, successBlock: { (response) in
+        Service.post(url: Router.get_country_map.url(), params: param, method: .get, vc: vC, successBlock: { (response) in
             do {
                 let jsonDecoder = JSONDecoder()
                 let root = try jsonDecoder.decode(Api_CountryMap.self, from: response)
@@ -163,7 +163,7 @@ class Api: NSObject {
             vC.hideProgressBar()
         }
     }
-
+    
     func requestAllServices(_ vC: UIViewController,_ success: @escaping(_ responseData: [Res_Services]) -> Void) {
         vC.showProgressBar()
         Service.post(url: Router.get_services.url(), params: paramGetUserId(), method: .get, vc: vC, successBlock: { (response) in
@@ -224,6 +224,126 @@ class Api: NSObject {
                     if let result = root.result {
                         success(result)
                         vC.hideProgressBar()
+                    }
+                } else {
+                    print("No Data Available to show!!")
+                    vC.hideProgressBar()
+                }
+                vC.hideProgressBar()
+            } catch {
+                print(error)
+            }
+        }) { (error: Error) in
+            vC.alert(alertmessage: error.localizedDescription)
+            vC.hideProgressBar()
+        }
+    }
+    
+    func requestScheduleTrip(_ vC: UIViewController,_ success: @escaping(_ responseData: [Res_ScheduleTrip]) -> Void) {
+        vC.showProgressBar()
+        Service.post(url: Router.get_user_trip_schedule.url(), params: paramGetUserId(), method: .get, vc: vC, successBlock: { (response) in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let root = try jsonDecoder.decode(Api_ScheduleTrip.self, from: response)
+                if root.status == "1" {
+                    if let result = root.result {
+                        success(result)
+                        vC.hideProgressBar()
+                    }
+                } else {
+                    print("No Data Available to show!!")
+                    vC.hideProgressBar()
+                }
+                vC.hideProgressBar()
+            } catch {
+                print(error)
+            }
+        }) { (error: Error) in
+            vC.alert(alertmessage: error.localizedDescription)
+            vC.hideProgressBar()
+        }
+    }
+    
+    func requestDetailsScheduleTrip(_ vC: UIViewController,_ param: [String : AnyObject],_ success: @escaping(_ responseData: Res_DetailScheduleTrip) -> Void) {
+        vC.showProgressBar()
+        Service.post(url: Router.get_user_trip_schedule_details.url(), params: param, method: .get, vc: vC, successBlock: { (response) in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let root = try jsonDecoder.decode(Api_DetailScheduleTrip.self, from: response)
+                if root.status == "1" {
+                    if let result = root.result {
+                        success(result)
+                        vC.hideProgressBar()
+                    }
+                } else {
+                    print("No Data Available to show!!")
+                    vC.hideProgressBar()
+                }
+                vC.hideProgressBar()
+            } catch {
+                print(error)
+            }
+        }) { (error: Error) in
+            vC.alert(alertmessage: error.localizedDescription)
+            vC.hideProgressBar()
+        }
+    }
+    
+    func requestToSelectFavUnFavCityMap(_ vC: UIViewController,_ param: [String : AnyObject],_ success: @escaping(_ responseData: Api_BasicModel) -> Void) {
+        vC.showProgressBar()
+        Service.post(url: Router.fav_unfav_citymap.url(), params: param, method: .get, vc: vC, successBlock: { (response) in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let root = try jsonDecoder.decode(Api_BasicModel.self, from: response)
+                if root.result != nil {
+                    success(root)
+                } else {
+                    print("No Data Available to show!!")
+                    vC.hideProgressBar()
+                }
+                vC.hideProgressBar()
+            } catch {
+                print(error)
+            }
+        }) { (error: Error) in
+            vC.alert(alertmessage: error.localizedDescription)
+            vC.hideProgressBar()
+        }
+    }
+    
+    func requestToPurchasedCityMap(_ vC: UIViewController,_ success: @escaping(_ responseData: [Res_PurchasedCityMap]) -> Void) {
+        vC.showProgressBar()
+        Service.post(url: Router.get_purcahse_city_map_list.url(), params: paramGetUserId(), method: .get, vc: vC, successBlock: { (response) in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let root = try jsonDecoder.decode(Api_PurchasedCityMaps.self, from: response)
+                if root.status == "1" {
+                    if let result = root.result {
+                        success(result)
+                    }
+                } else {
+                    print("No Data Available to show!!")
+                    vC.hideProgressBar()
+                }
+                vC.hideProgressBar()
+            } catch {
+                print(error)
+            }
+        }) { (error: Error) in
+            vC.alert(alertmessage: error.localizedDescription)
+            vC.hideProgressBar()
+        }
+    }
+    
+    func requestToFavCityMap(_ vC: UIViewController,_ success: @escaping(_ responseData: [Res_FavCityMaps]) -> Void) {
+        vC.showProgressBar()
+        Service.post(url: Router.my_fav_citymap.url(), params: paramGetUserId(), method: .get, vc: vC, successBlock: { (response) in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let root = try jsonDecoder.decode(Api_FavCityMaps.self, from: response)
+                if root.status == "1" {
+                    if let result = root.result {
+                        success(result)
                     }
                 } else {
                     print("No Data Available to show!!")

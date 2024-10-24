@@ -25,6 +25,25 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="submapimg" translatesAutoresizingMaskIntoConstraints="NO" id="ggT-Hb-ZMg">
                                 <rect key="frame" x="0.0" y="0.0" width="304" height="172"/>
                             </imageView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Els-q5-B1A">
+                                <rect key="frame" x="264" y="10" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EWV-sp-auC"/>
+                                    <constraint firstAttribute="width" constant="30" id="art-wc-kum"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="fav_deactive"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btn_Fav:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8ZA-ji-cNN"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Istanbul Map 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZf-gm-MfU">
                                 <rect key="frame" x="10" y="114" width="284" height="22"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
@@ -54,10 +73,10 @@
                                                         <color key="value" name="Main"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                        <color key="value" systemColor="separatorColor"/>
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                        <color key="value" systemColor="separatorColor"/>
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
                                                         <color key="value" name="Main"/>
@@ -86,29 +105,43 @@
                                             <constraint firstItem="nml-XY-YJF" firstAttribute="centerY" secondItem="Tvt-Bh-YfB" secondAttribute="centerY" id="ucB-SI-XmK"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkey, Istanbul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrT-kt-r2U">
-                                        <rect key="frame" x="206.66666666666666" y="0.0" width="87.333333333333343" height="36"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_pin1" translatesAutoresizingMaskIntoConstraints="NO" id="4zQ-Ye-ala">
-                                        <rect key="frame" x="180.66666666666666" y="9" width="18" height="18"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wl2-lI-CAd">
+                                        <rect key="frame" x="170" y="0.0" width="134" height="36"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="ic_pin1" translatesAutoresizingMaskIntoConstraints="NO" id="4zQ-Ye-ala">
+                                                <rect key="frame" x="0.0" y="9" width="18" height="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="84k-a9-qaU"/>
+                                                    <constraint firstAttribute="width" constant="18" id="qZQ-p0-hAa"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turkey, Istanbul" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrT-kt-r2U">
+                                                <rect key="frame" x="18" y="0.0" width="116" height="36"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="84k-a9-qaU"/>
-                                            <constraint firstAttribute="width" constant="18" id="qZQ-p0-hAa"/>
+                                            <constraint firstAttribute="bottom" secondItem="BrT-kt-r2U" secondAttribute="bottom" id="0YW-a1-ypn"/>
+                                            <constraint firstItem="BrT-kt-r2U" firstAttribute="top" secondItem="wl2-lI-CAd" secondAttribute="top" id="3SO-EY-znN"/>
+                                            <constraint firstItem="4zQ-Ye-ala" firstAttribute="centerY" secondItem="wl2-lI-CAd" secondAttribute="centerY" id="95a-7s-Ht9"/>
+                                            <constraint firstItem="BrT-kt-r2U" firstAttribute="leading" secondItem="4zQ-Ye-ala" secondAttribute="trailing" id="KG4-7z-BF0"/>
+                                            <constraint firstAttribute="trailing" secondItem="BrT-kt-r2U" secondAttribute="trailing" id="ibh-T9-xgQ"/>
+                                            <constraint firstItem="4zQ-Ye-ala" firstAttribute="centerY" secondItem="wl2-lI-CAd" secondAttribute="centerY" id="lvv-sh-Ekq"/>
+                                            <constraint firstItem="4zQ-Ye-ala" firstAttribute="leading" secondItem="wl2-lI-CAd" secondAttribute="leading" id="pKZ-JC-VhB"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="BrT-kt-r2U" firstAttribute="leading" secondItem="4zQ-Ye-ala" secondAttribute="trailing" constant="8" id="FTg-HL-xkD"/>
+                                    <constraint firstAttribute="trailing" secondItem="wl2-lI-CAd" secondAttribute="trailing" id="6OG-so-bWd"/>
+                                    <constraint firstItem="wl2-lI-CAd" firstAttribute="leading" secondItem="Tvt-Bh-YfB" secondAttribute="trailing" constant="20" id="F4U-PV-iYA"/>
                                     <constraint firstAttribute="height" constant="36" id="IkD-yV-Qoh"/>
-                                    <constraint firstItem="4zQ-Ye-ala" firstAttribute="centerY" secondItem="mct-z2-dmH" secondAttribute="centerY" id="bNr-Rk-z2B"/>
-                                    <constraint firstItem="BrT-kt-r2U" firstAttribute="top" secondItem="mct-z2-dmH" secondAttribute="top" id="hzF-W4-82g"/>
-                                    <constraint firstAttribute="bottom" secondItem="BrT-kt-r2U" secondAttribute="bottom" id="iJc-pe-CPb"/>
-                                    <constraint firstAttribute="trailing" secondItem="BrT-kt-r2U" secondAttribute="trailing" constant="10" id="lcG-r1-aXd"/>
+                                    <constraint firstItem="wl2-lI-CAd" firstAttribute="top" secondItem="mct-z2-dmH" secondAttribute="top" id="gAw-7m-7j4"/>
+                                    <constraint firstAttribute="bottom" secondItem="wl2-lI-CAd" secondAttribute="bottom" id="liZ-95-8P0"/>
                                     <constraint firstItem="Tvt-Bh-YfB" firstAttribute="centerY" secondItem="mct-z2-dmH" secondAttribute="centerY" id="zP7-0o-fhw"/>
                                     <constraint firstItem="Tvt-Bh-YfB" firstAttribute="leading" secondItem="mct-z2-dmH" secondAttribute="leading" constant="10" id="zc7-gD-LiF"/>
                                 </constraints>
@@ -117,8 +150,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ggT-Hb-ZMg" secondAttribute="trailing" id="0jV-cT-EVh"/>
+                            <constraint firstItem="Els-q5-B1A" firstAttribute="top" secondItem="gx8-aU-sEq" secondAttribute="top" constant="10" id="6b8-uh-vFF"/>
                             <constraint firstAttribute="bottom" secondItem="mct-z2-dmH" secondAttribute="bottom" id="CtH-PI-qOo"/>
                             <constraint firstItem="mct-z2-dmH" firstAttribute="leading" secondItem="gx8-aU-sEq" secondAttribute="leading" id="Huq-SU-WS1"/>
+                            <constraint firstAttribute="trailing" secondItem="Els-q5-B1A" secondAttribute="trailing" constant="10" id="Vt1-CR-kKP"/>
                             <constraint firstItem="ggT-Hb-ZMg" firstAttribute="leading" secondItem="gx8-aU-sEq" secondAttribute="leading" id="Zke-zw-qzQ"/>
                             <constraint firstItem="kZf-gm-MfU" firstAttribute="leading" secondItem="gx8-aU-sEq" secondAttribute="leading" constant="10" id="bje-LZ-4fS"/>
                             <constraint firstAttribute="trailing" secondItem="kZf-gm-MfU" secondAttribute="trailing" constant="10" id="fVc-Q3-Ida"/>
@@ -145,6 +180,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="btn_FavOt" destination="Els-q5-B1A" id="JRC-NX-RaU"/>
                 <outlet property="img" destination="ggT-Hb-ZMg" id="CKb-2O-JeP"/>
                 <outlet property="lbl_Address" destination="BrT-kt-r2U" id="RST-e6-fVZ"/>
                 <outlet property="lbl_CountryName" destination="kZf-gm-MfU" id="sO2-As-fwU"/>
@@ -155,14 +191,12 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="fav_deactive" width="14" height="18"/>
         <image name="ic_pin1" width="150" height="150"/>
         <image name="submapimg" width="212" height="150"/>
         <namedColor name="Main">
             <color red="0.88627450980392153" green="0.36862745098039218" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

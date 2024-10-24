@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 @available(iOS 14.0, *)
-public protocol PagingIndicatorStyle {
+public protocol PagingIndicatorStyle: Sendable {
     associatedtype Body: View
     typealias Configuration = PagingIndicatorConfiguration
     @ViewBuilder func makeBody(configuration: Configuration) -> Body
@@ -34,7 +34,7 @@ struct DefaultPagingIndicatorStyle: PagingIndicatorStyle {
 
 @available(iOS 14.0, *)
 struct PagingIndicatorStyleKey: EnvironmentKey {
-    static var defaultValue: any PagingIndicatorStyle = DefaultPagingIndicatorStyle()
+    static let defaultValue: any PagingIndicatorStyle = DefaultPagingIndicatorStyle()
 }
 
 @available(iOS 14.0, *)

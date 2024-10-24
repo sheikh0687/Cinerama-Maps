@@ -12,12 +12,18 @@ class CityMapsVC: UIViewController {
     @IBOutlet weak var city_MapTableVw: UITableView!
     @IBOutlet weak var search_Bar: UISearchBar!
     
+    @IBOutlet weak var lbl_CountryMapHeading: UILabel!
+    @IBOutlet weak var lbl_CountryRepublicText: UILabel!
+    
     let viewModel = CityViewModel()
+    var countryName:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.setupSearchBar(for: search_Bar)
         self.city_MapTableVw.register(UINib(nibName: "CityMapCell", bundle: nil), forCellReuseIdentifier: "CityMapCell")
+        self.lbl_CountryMapHeading.text = "\(countryName) Maps"
+        self.lbl_CountryRepublicText.text = "City maps in the Republic of \(countryName)"
         fetchCityMapDetails()
     }
 
@@ -31,7 +37,7 @@ class CityMapsVC: UIViewController {
         viewModel.returnBackk(from: self.navigationController)
     }
     
-    private func fetchCityMapDetails()
+     func fetchCityMapDetails()
     {
         viewModel.requestCityMapDetails(vC: self)
         viewModel.requestSuccessfull = { [] in
@@ -59,6 +65,21 @@ extension CityMapsVC: UITableViewDataSource, UITableViewDelegate {
         
         if Router.BASE_IMAGE_URL != obj.image {
             Utility.setImageWithSDWebImage(obj.image ?? "", cell.img)
+        } else {
+            cell.img.image = R.image.no_Image_Available()
+        }
+        
+        if obj.fav_status == "Yes" {
+            cell.btn_FavOt.tintColor = R.color.main()
+        } else {
+            cell.btn_FavOt.tintColor = .lightGray
+        }
+        
+        cell.cloFav = { [] in
+            self.viewModel.fetchFavAndUnFavMap(vC: self, cityId: obj.id ?? "")
+            self.viewModel.requestSuccessfull = { [] in
+                self.fetchCityMapDetails()
+            }
         }
         
         return cell

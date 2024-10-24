@@ -23,9 +23,10 @@ class MapViewModel {
         search_Bar.layer.masksToBounds = true
     }
     
-    func navigateToCityMapsViewController(from navigationController: UINavigationController?, countryId: String) {
+    func navigateToCityMapsViewController(from navigationController: UINavigationController?, countryId: String, countryName: String) {
         let vC = R.storyboard.main().instantiateViewController(withIdentifier: "CityMapsVC") as! CityMapsVC
         vC.viewModel.country_ID = countryId
+        vC.countryName = countryName
         navigationController?.pushViewController(vC, animated: true)
     }
 }

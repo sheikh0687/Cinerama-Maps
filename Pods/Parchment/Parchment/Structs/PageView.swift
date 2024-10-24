@@ -339,7 +339,7 @@ extension PageView {
         return view
     }
 
-    /// Determine the transition behaviour of menu items while
+    /// Determine the transition behavior of menu items while
     /// scrolling the content.
     public func menuTransition(_ transition: PagingMenuTransition) -> Self {
         var view = self

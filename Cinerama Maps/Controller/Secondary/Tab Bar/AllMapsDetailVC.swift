@@ -58,6 +58,9 @@ class AllMapsDetailVC: UIViewController {
     
     //    Mark MapView Outlet
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationAddress_Vw: UIView!
+    @IBOutlet weak var lbl_PlaceName: UILabel!
+    @IBOutlet weak var lbl_PlaceAddress: UILabel!
     
     //    Mark RatingView Outlet
     @IBOutlet weak var rating_TableVw: UITableView!
@@ -73,6 +76,7 @@ class AllMapsDetailVC: UIViewController {
         self.images_CollectionVw.register(UINib(nibName: "MapCell", bundle: nil), forCellWithReuseIdentifier: "MapCell")
         selectTab(.aboutMap)
         bindDataFromVm()
+        self.locationAddress_Vw.isHidden = true
     }
     
     @IBAction func allPlaceDetailButton(_ sender: UIButton) {
@@ -108,39 +112,88 @@ class AllMapsDetailVC: UIViewController {
         viewModel.returnBackk(from: self.navigationController)
     }
     
+    @IBAction func btn_ClosePlaceDt(_ sender: UIButton) {
+        self.locationAddress_Vw.isHidden = true
+    }
+    
     private func bindDataFromVm()
     {
         viewModel.requestCountryMapDetails(vC: self)
-        viewModel.fetchedSuccessfully = {[] in
+        viewModel.fetchedSuccessfully = { [] in
             DispatchQueue.main.async {
-                self.lbl_CityNAme.text = self.viewModel.cityName
-                self.ratingVw.rating = self.viewModel.ratingReviewStar
-                self.lbl_RatingReview.text = self.viewModel.ratingReviewCount
-                self.lbl_CityAddress.text = self.viewModel.address
-                self.lbl_AboutCity.text = self.viewModel.aboutCity
-                self.lbl_Currrency.text = self.viewModel.countryCurrency
-                self.lbl_Language.text = self.viewModel.countryOfficialLanguage
-                self.lbl_Clothing.text = self.viewModel.clothing
-                self.lbl_Timing.text = self.viewModel.bestVisitTiming
-                self.lbl_Health.text = self.viewModel.health
-                self.lbl_ElectricSocket.text = self.viewModel.electric
-                self.lbl_Communication.text = self.viewModel.communication
-                self.lbl_Weather.text = self.viewModel.wealther
-                self.lbl_PoliceCarNum.text = self.viewModel.policeCarNum
-                self.lbl_PolicePhoneNum.text = self.viewModel.policePhoneNum
+                let obj = self.viewModel.arrayOfDetailCityMaps
+                self.lbl_CityNAme.text = obj?.name
+                self.lbl_Amount.text = "\(obj?.city_map_price ?? "") SAR for \(obj?.city_map_month ?? "") Month"
+                self.ratingVw.rating = Double(obj?.place_details?[0].avg_rating ?? "") ?? 0.0
+                self.lbl_RatingReview.text = obj?.place_details?[0].avg_rating ?? ""
+                self.lbl_CityAddress.text = obj?.address
+                self.lbl_AboutCity.text = obj?.about_city
+                self.lbl_Currrency.text = obj?.currency
+                self.lbl_Language.text = obj?.offical_language
+                self.lbl_Clothing.text = obj?.clothing
+                self.lbl_Timing.text = obj?.best_time_to_visit
+                self.lbl_Health.text = obj?.health
+                self.lbl_ElectricSocket.text = obj?.electrical_socket
+                self.lbl_Communication.text = obj?.communications
+                self.lbl_Weather.text = obj?.the_waether
+                self.lbl_PoliceCarNum.text = obj?.car_police_number
+                self.lbl_PolicePhoneNum.text = obj?.police_number
+                
+                let placeImg = obj?.image
+                let imageUrl = Router.BASE_IMAGE_URL + (placeImg ?? "")
+                
+                if Router.BASE_IMAGE_URL != imageUrl {
+                    Utility.setImageWithSDWebImage(imageUrl, self.img_DetailMap)
+                } else {
+                    self.img_DetailMap.image = R.image.no_Image_Available()
+                }
+                
+                self.updateAnnotations()
+                self.rating_TableVw.reloadData()
             }
         }
+    }
+    
+    func updateAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
+        for cityMap in viewModel.arrayOfDetailCityMaps.place_details ?? [] {
+            let coordinate = CLLocationCoordinate2D(
+                latitude: Double(cityMap.lat ?? "") ?? 0.0,
+                longitude: Double(cityMap.lon ?? "") ?? 0.0
+            )
+            let annotation = CustomPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = cityMap.place_name
+            annotation.imageName = cityMap.icon
+            annotation.city_Address = cityMap.address
+            mapView.addAnnotation(annotation)
+        }
+        Utility.zoomMapToAnnotations(mapView)
     }
 }
 
 extension AllMapsDetailVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.viewModel.arrayOfReviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
+        
+        let obj = self.viewModel.arrayOfReviews[indexPath.row]
+        cell.lbl_Name.text = obj.user_name ?? ""
+        cell.lbl_Date.text = obj.date_time ?? ""
+        cell.lbl_Message.text = obj.review ?? ""
+        cell.ratingStar.rating = Double(obj.rating ?? "") ?? 0.0
+        cell.ratingCount.text = obj.rating ?? ""
+        
+        if Router.BASE_IMAGE_URL != obj.image {
+            Utility.setImageWithSDWebImage(obj.image ?? "", cell.user_Img)
+        } else {
+            cell.user_Img.image = R.image.no_Image_Available()
+        }
+        
         return cell
     }
 }
@@ -159,5 +212,82 @@ extension AllMapsDetailVC: UICollectionViewDataSource, UICollectionViewDelegateF
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.frame.width
         return CGSize(width: collectionWidth / 2, height: 110)
+    }
+}
+
+extension AllMapsDetailVC: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // Handle the tap action on the selected annotation view here
+        guard let annotation = view.annotation as? CustomPointAnnotation else {
+            return
+        }
+        
+        // Show details for the selected annotation
+        let cityName = annotation.title ?? ""
+        let cityAddress = annotation.city_Address ?? ""
+        let cityIcon = annotation.imageName ?? ""
+        showDetailsPopup(city_Name: cityName, city_Address: cityAddress, city_Icon: cityIcon)
+    }
+    
+    func showDetailsPopup(city_Name: String, city_Address: String, city_Icon: String) {
+        // Example: Instantiate and display a custom popup view controller
+        self.locationAddress_Vw.isHidden = false
+        self.lbl_PlaceName.text = city_Name
+        self.lbl_PlaceAddress.text = city_Address
+    }
+    
+    // MKMapViewDelegate method to customize overlays (polylines)
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let gradientColors = [ hexStringToUIColor(hex: "#000000"), hexStringToUIColor(hex: "#000000")]
+        
+        /// Initialise a GradientPathRenderer with the colors
+        let polylineRenderer = GradientPathRenderer(polyline: overlay as! MKPolyline, colors: gradientColors)
+        
+        /// set a linewidth
+        polylineRenderer.lineWidth = 7
+        return polylineRenderer
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        
+        guard let customAnnotation = annotation as? CustomPointAnnotation else {
+            return nil
+        }
+        
+        let identifier = "CustomViewAnnotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: customAnnotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = customAnnotation
+        }
+        
+        if let imageName = customAnnotation.imageName {
+            Utility.downloadImageBySDWebImage(imageName) { image, error in
+                if let image = image, error == nil {
+                    // Set the desired width and height for the circular image
+                    let size = CGSize(width: 40, height: 40) // Adjust size as needed
+                    let circularImage = image.circularImage(with: size)
+                    annotationView?.image = circularImage
+                } else {
+                    let placeHolderImg = R.image.no_Image_Available()
+                    let size = CGSize(width: 40, height: 40)
+                    let circularImage = placeHolderImg?.circularImage(with: size)
+                    annotationView?.image = circularImage
+                }
+            }
+        } else {
+            let placeHolderImg = R.image.no_Image_Available()
+            let size = CGSize(width: 40, height: 40)
+            let circularImage = placeHolderImg?.circularImage(with: size)
+            annotationView?.image = circularImage
+        }
+        return annotationView
     }
 }

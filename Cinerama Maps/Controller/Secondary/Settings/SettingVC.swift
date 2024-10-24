@@ -37,7 +37,8 @@ class SettingVC: UIViewController {
     }
     
     @IBAction func btn_Subscription(_ sender: UIButton) {
-        let vC = R.storyboard.main().instantiateViewController(withIdentifier: "SubscriptionVC") as! SubscriptionVC
+        let vC = R.storyboard.main().instantiateViewController(withIdentifier: "MapVC") as! MapVC
+        vC.decided_Ui = "Subscription"
         self.navigationController?.pushViewController(vC, animated: true)
     }
     

@@ -12,10 +12,13 @@ class FavVC: UIViewController {
     @IBOutlet weak var fav_TableVw: UITableView!
     @IBOutlet weak var search_Bar: UISearchBar!
     
+    let viewModel = FavCityMapViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
-        self.fav_TableVw.register(UINib(nibName: "FavCell", bundle: nil), forCellReuseIdentifier: "FavCell")
+        self.fav_TableVw.register(UINib(nibName: "CityMapCell", bundle: nil), forCellReuseIdentifier: "CityMapCell")
+        self.setUpBindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,16 +40,52 @@ class FavVC: UIViewController {
         search_Bar.layer.cornerRadius = 10
         search_Bar.layer.masksToBounds = true
     }
+    
+    func setUpBindViewModel()
+    {
+        viewModel.fetchFavCityMap(vC: self)
+        viewModel.fetchedSuccessfull = { [] in
+            DispatchQueue.main.async {
+                self.fav_TableVw.reloadData()
+            }
+        }
+    }
 }
 
 extension FavVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.viewModel.arrayOfFavCityMap.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as! FavCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityMapCell", for: indexPath) as! CityMapCell
+        
+        let obj = self.viewModel.arrayOfFavCityMap[indexPath.row]
+        cell.lbl_CountryName.text = obj.name ?? ""
+        cell.lbl_Rating.text = obj.avg_rating ?? ""
+        cell.lbl_Address.text = obj.address ?? ""
+        cell.rating_Vw.rating = Double(obj.avg_rating ?? "") ?? 0.0
+        
+        if Router.BASE_IMAGE_URL != obj.image {
+            Utility.setImageWithSDWebImage(obj.image ?? "", cell.img)
+        } else {
+            cell.img.image = R.image.no_Image_Available()
+        }
+        
+        if obj.fav_status == "Yes" {
+            cell.btn_FavOt.tintColor = R.color.main()
+        } else {
+            cell.btn_FavOt.tintColor = .lightGray
+        }
+        
+        cell.cloFav = { [] in
+            self.viewModel.fetchFavAndUnFavMap(vC: self, cityId: obj.id ?? "")
+            self.viewModel.fetchedSuccessfull = { [] in
+                self.setUpBindViewModel()
+            }
+        }
+        
         return cell
     }
     

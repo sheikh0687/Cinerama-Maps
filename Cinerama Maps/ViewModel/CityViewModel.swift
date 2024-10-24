@@ -55,4 +55,21 @@ class CityViewModel {
             self.requestSuccessfull?()
         }
     }
+    
+    func fetchFavAndUnFavMap(vC: UIViewController, cityId: String)
+    {
+        var param: [String : AnyObject] = [:]
+        param["user_id"] = k.userDefault.value(forKey: k.session.userId) as AnyObject?
+        param["city_id"] = cityId as AnyObject
+        
+        print(param)
+        
+        Api.shared.requestToSelectFavUnFavCityMap(vC, param) { responseData in
+            if responseData.status == "1" {
+                self.requestSuccessfull?()
+            } else {
+                print(responseData.message ?? "")
+            }
+        }
+    }
 }

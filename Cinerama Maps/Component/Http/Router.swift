@@ -22,6 +22,12 @@ enum Router: String {
     case get_services
     case get_company_offer
     case get_country_map_city_places
+    case get_user_trip_schedule
+    case get_user_trip_schedule_details
+    case get_purcahse_city_map_list
+    case my_fav_citymap
+    
+    case fav_unfav_citymap
     
     public func url() -> String {
         switch self {
@@ -44,6 +50,17 @@ enum Router: String {
             return Router.oAuthPath(path: "get_company_offer")
         case .get_country_map_city_places:
             return Router.oAuthPath(path: "get_country_map_city_places")
+        case .get_user_trip_schedule:
+            return Router.oAuthPath(path: "get_user_trip_schedule")
+        case .get_user_trip_schedule_details:
+            return Router.oAuthPath(path: "get_user_trip_schedule_details")
+        case .get_purcahse_city_map_list:
+            return Router.oAuthPath(path: "get_purcahse_city_map_list")
+            
+        case .fav_unfav_citymap:
+            return Router.oAuthPath(path: "fav_unfav_citymap")
+        case .my_fav_citymap:
+            return Router.oAuthPath(path: "my_fav_citymap")
         }
     }
     

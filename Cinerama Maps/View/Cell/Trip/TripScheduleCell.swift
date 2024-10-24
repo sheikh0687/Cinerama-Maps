@@ -9,6 +9,13 @@ import UIKit
 
 class TripScheduleCell: UITableViewCell {
 
+    @IBOutlet weak var lbl_Address: UILabel!
+    @IBOutlet weak var lbl_ScheduleTrip: UILabel!
+    @IBOutlet weak var lbl_CreatedBy: UILabel!
+    @IBOutlet weak var lbl_Date: UILabel!
+    
+    var cloEdit:(() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +27,7 @@ class TripScheduleCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func btn_Edit(_ sender: UIButton) {
+        self.cloEdit?()
+    }
 }
