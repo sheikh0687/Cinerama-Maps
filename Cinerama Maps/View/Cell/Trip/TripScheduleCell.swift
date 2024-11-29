@@ -14,7 +14,7 @@ class TripScheduleCell: UITableViewCell {
     @IBOutlet weak var lbl_CreatedBy: UILabel!
     @IBOutlet weak var lbl_Date: UILabel!
     
-    var cloEdit:(() -> Void)?
+    var cloDelete:(() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +27,7 @@ class TripScheduleCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func btn_Edit(_ sender: UIButton) {
-        self.cloEdit?()
+    @IBAction func btn_Delete(_ sender: UIButton) {
+        self.cloDelete?()
     }
 }

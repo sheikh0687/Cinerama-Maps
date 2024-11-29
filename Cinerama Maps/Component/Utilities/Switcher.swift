@@ -14,12 +14,12 @@ class Switcher {
         let status = k.userDefault.bool(forKey: k.session.status)
         
         if status == true {
-            let mainViewController = R.storyboard.main().instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+            let mainViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
             let vC = UINavigationController(rootViewController: mainViewController)
             kAppDelegate.window?.rootViewController = vC
             kAppDelegate.window?.makeKeyAndVisible()
         } else {
-            let mainViewController = R.storyboard.main().instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
+            let mainViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
             let vC = UINavigationController(rootViewController: mainViewController)
             kAppDelegate.window?.rootViewController = vC
             kAppDelegate.window?.makeKeyAndVisible()

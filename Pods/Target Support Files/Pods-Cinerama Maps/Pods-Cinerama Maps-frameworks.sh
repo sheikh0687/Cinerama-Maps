@@ -180,10 +180,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CountryPickerView/CountryPickerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LanguageManager-iOS/LanguageManager_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OTPFieldView/OTPFieldView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -191,10 +194,13 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CountryPickerView/CountryPickerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LanguageManager-iOS/LanguageManager_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OTPFieldView/OTPFieldView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

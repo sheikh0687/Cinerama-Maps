@@ -7,6 +7,7 @@ target 'Cinerama Maps' do
 
   # Pods for Cinerama Maps
 
+##pod 'R.swift'
 pod 'R.swift', '~> 5.4.0'
 pod 'Parchment'
 
@@ -21,6 +22,14 @@ pod 'Alamofire', '~> 4.9.1'
 
 pod 'DropDown'
 #pod 'IQKeyboardManagerSwift'
+
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+
+pod 'InputMask'
+pod 'SwiftyJSON'
+
+pod 'LanguageManager-iOS'
 
 end
 

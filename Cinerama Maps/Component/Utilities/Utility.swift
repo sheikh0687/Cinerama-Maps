@@ -10,6 +10,8 @@ import MapKit
 import SDWebImage
 import SafariServices
 import Rswift
+import GoogleMaps
+import LanguageManager_iOS
 
 class Utility {
     
@@ -170,7 +172,7 @@ class Utility {
     class func showAlertMessage(withTitle title: String, message msg: String, delegate del: Any?, parentViewController parentVC: UIViewController) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         //We add buttons to the alert controller by creating UIAlertActions:
-        let actionOk = UIAlertAction(title: "ok", style: .default, handler: nil)
+        let actionOk = UIAlertAction(title: "Ok".localiz(), style: .default, handler: nil)
         //You can use a block here to handle a press on this button
         alertController.addAction(actionOk)
         //        alertController.setMessageAlignment(.center)
@@ -188,7 +190,7 @@ class Utility {
         //        label2.text = msg
         //        label2.textAlignment = .center
         //        alert.view.addSubview(label2)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Ok".localiz(), style: .default, handler: { action in
             switch action.style {
             case .default:
                 completionHandler(true)
@@ -204,7 +206,7 @@ class Utility {
     
     class func showAlertYesNoAction(withTitle title: String, message msg: String, delegate del: Any?, parentViewController parentVC: UIViewController, completionHandler: @escaping (Bool) -> Void ) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Yes".localiz(), style: .default, handler: { action in
             switch action.style {
             case .default:
                 completionHandler(true)
@@ -214,7 +216,7 @@ class Utility {
                 print("destructive")
             }
         }))
-        alert.addAction(UIAlertAction(title: "No"/*.localiz()*/, style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "No".localiz(), style: .default, handler: { action in
             switch action.style {
             case .default:
                 completionHandler(false)
@@ -230,7 +232,7 @@ class Utility {
     
     class func showAlertOkOrCancel(withTitle title: String, message msg: String, delegate del: Any?, parentViewController parentVC: UIViewController, completionHandler: @escaping (Bool) -> Void ) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Open"/*.localiz()*/, style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Open".localiz(), style: .default, handler: { action in
             switch action.style {
             case .default:
                 completionHandler(true)
@@ -240,7 +242,7 @@ class Utility {
                 print("destructive")
             }
         }))
-        alert.addAction(UIAlertAction(title: "Cancel"/*.localiz()*/, style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Cancel".localiz(), style: .default, handler: { action in
             switch action.style {
             case .default:
                 completionHandler(false)
@@ -353,7 +355,7 @@ class Utility {
     class func setImageWithSDWebImage(_ url: String, _ imageView: UIImageView) {
         let urlwithPercentEscapes = url.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         let urlLogo = URL(string: urlwithPercentEscapes!)
-        imageView.sd_setImage(with: urlLogo, placeholderImage: UIImage(named: "placeholder"), options: .continueInBackground, completed: nil)
+        imageView.sd_setImage(with: urlLogo, placeholderImage: UIImage(named: "BackPlaceholder"), options: .continueInBackground, completed: nil)
     }
     
     class func downloadImageBySDWebImage(_ url: String, successBlock success : @escaping ( _ image : UIImage?, _  error: Error?) -> Void) {
@@ -370,7 +372,7 @@ class Utility {
         
         imageView.sd_setImage(with: urlLogo, for:
                                 UIControl.State.normal, placeholderImage: UIImage(named:
-                                                                                    "placeholder"), options: SDWebImageOptions(rawValue: 0)) { (image,
+                                                                                    "BackPlaceholder"), options: SDWebImageOptions(rawValue: 0)) { (image,
                                                                                                                                                 error, cache, url) in
             print("imagdoooooooooo\(image)")
         }
@@ -429,6 +431,39 @@ class Utility {
         mapView.setRegion(region, animated: true)
     }
     
+    //    class func showCurrentLocationOnGoogleMap(_ mapView: GMSMapView, _ vc: UIViewController) {
+    //        let region = MKCoordinateRegion(center: kAppDelegate.coordinate2.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+    //        mapView.showsUserLocation = true
+    //        mapView.setRegion(region, animated: true)
+    //    }
+    
+    class func showCurrentLocationOnGoogleMap(_ mapView: GMSMapView, _ vc: UIViewController) {
+        guard let currentLocation = LocationManager.sharedInstance.locationManager?.location else {
+            print("Unable to fetch current location")
+            return
+        }
+        
+        let coordinate = currentLocation.coordinate
+        
+        // Create a camera position to focus on the user's current location.
+        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude,
+                                              longitude: coordinate.longitude,
+                                              zoom: 15) // Adjust zoom level as needed
+        
+        // Move the camera to the user's location on the map.
+        mapView.animate(to: camera)
+        
+        //        // Optionally add a marker for the user's current location.
+        //        let marker = GMSMarker()
+        //        marker.position = coordinate
+        //        marker.title = "You are here"
+        //        marker.map = mapView
+        
+        // Display user location on the map (if enabled in Google Maps settings).
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+    }
+    
     class func getLocationByCoordinates (location: CLLocation, successBlock success: @escaping (_ address: String, _ display_address: String) -> Void) {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
@@ -485,63 +520,63 @@ class Utility {
         }
     }
     
-//    class func showRouteOnMap(_ mapView: MKMapView, _ pickupCoordinate: CLLocationCoordinate2D, _ destinationCoordinate: CLLocationCoordinate2D, _ vc: UIViewController,top: CGFloat, bottom: CGFloat, left: CGFloat, right: CGFloat) {
-//        
-//        Utility.initMapViewAnnotation(mapView)
-//        
-//        let sourcePlacemark = MKPlacemark(coordinate: pickupCoordinate, addressDictionary: nil)
-//        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
-//        
-//        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-//        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-//        
-//        let sourceAnnotation = CustomPointAnnotation()
-//        
-//        if let location = sourcePlacemark.location {
-//            sourceAnnotation.coordinate = location.coordinate
-//            sourceAnnotation.imageName = "pick.png"
-//            sourceAnnotation.point = "source"
-//        }
-//        
-//        let destinationAnnotation = CustomPointAnnotation()
-//        
-//        if let location = destinationPlacemark.location {
-//            destinationAnnotation.coordinate = location.coordinate
-//            destinationAnnotation.imageName = "drop.png"
-//            destinationAnnotation.point = "destination"
-//        }
-//        
-//        mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-//        
-//        let directionRequest = MKDirections.Request()
-//        directionRequest.source = sourceMapItem
-//        directionRequest.destination = destinationMapItem
-//        directionRequest.transportType = .automobile
-//        
-//        // Calculate the direction
-//        let directions = MKDirections(request: directionRequest)
-//        
-//        directions.calculate {
-//            (response, error) -> Void in
-//            
-//            guard let response = response else {
-//                if let error = error {
-//                    print("Error: \(error)")
-//                }
-//                
-//                return
-//            }
-//            
-//            let route = response.routes[0]
-//            mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-//            
-//            //            let rect = route.polyline.boundingMapRect
-//            //            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-//            
-//            let mapRect = MKPolygon(points: route.polyline.points(), count: route.polyline.pointCount)
-//            mapView.setVisibleMapRect(mapRect.boundingMapRect, edgePadding: UIEdgeInsets(top: top,left: left,bottom: bottom,right: right), animated: true)
-//        }
-//    }
+    //    class func showRouteOnMap(_ mapView: MKMapView, _ pickupCoordinate: CLLocationCoordinate2D, _ destinationCoordinate: CLLocationCoordinate2D, _ vc: UIViewController,top: CGFloat, bottom: CGFloat, left: CGFloat, right: CGFloat) {
+    //
+    //        Utility.initMapViewAnnotation(mapView)
+    //
+    //        let sourcePlacemark = MKPlacemark(coordinate: pickupCoordinate, addressDictionary: nil)
+    //        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
+    //
+    //        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+    //        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+    //
+    //        let sourceAnnotation = CustomPointAnnotation()
+    //
+    //        if let location = sourcePlacemark.location {
+    //            sourceAnnotation.coordinate = location.coordinate
+    //            sourceAnnotation.imageName = "pick.png"
+    //            sourceAnnotation.point = "source"
+    //        }
+    //
+    //        let destinationAnnotation = CustomPointAnnotation()
+    //
+    //        if let location = destinationPlacemark.location {
+    //            destinationAnnotation.coordinate = location.coordinate
+    //            destinationAnnotation.imageName = "drop.png"
+    //            destinationAnnotation.point = "destination"
+    //        }
+    //
+    //        mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+    //
+    //        let directionRequest = MKDirections.Request()
+    //        directionRequest.source = sourceMapItem
+    //        directionRequest.destination = destinationMapItem
+    //        directionRequest.transportType = .automobile
+    //
+    //        // Calculate the direction
+    //        let directions = MKDirections(request: directionRequest)
+    //
+    //        directions.calculate {
+    //            (response, error) -> Void in
+    //
+    //            guard let response = response else {
+    //                if let error = error {
+    //                    print("Error: \(error)")
+    //                }
+    //
+    //                return
+    //            }
+    //
+    //            let route = response.routes[0]
+    //            mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+    //
+    //            //            let rect = route.polyline.boundingMapRect
+    //            //            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+    //
+    //            let mapRect = MKPolygon(points: route.polyline.points(), count: route.polyline.pointCount)
+    //            mapView.setVisibleMapRect(mapRect.boundingMapRect, edgePadding: UIEdgeInsets(top: top,left: left,bottom: bottom,right: right), animated: true)
+    //        }
+    //    }
     
     class func addRadiusCircle(_ mapView: MKMapView, location: CLLocationCoordinate2D, desiredRadius: CLLocationDistance) {
         let circle = MKCircle(center: location, radius: desiredRadius)
@@ -590,6 +625,25 @@ class Utility {
         let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.2, longitudeDelta: (maxLon - minLon) * 1.2)
         
         return MKCoordinateRegion(center: center, span: span)
+    }
+    
+    class func zoomMapToMarkers(_ mapView: GMSMapView, markers: [GMSMarker]) {
+        guard !markers.isEmpty else { return }
+        
+        let bounds = self.boundsThatFitAllMarkers(markers)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 50) // Adjust padding as needed
+        mapView.animate(with: update)
+    }
+    
+    /// Computes the GMSCoordinateBounds that include all markers.
+    private class func boundsThatFitAllMarkers(_ markers: [GMSMarker]) -> GMSCoordinateBounds {
+        var bounds = GMSCoordinateBounds()
+        
+        for marker in markers {
+            bounds = bounds.includingCoordinate(marker.position)
+        }
+        
+        return bounds
     }
 }
 

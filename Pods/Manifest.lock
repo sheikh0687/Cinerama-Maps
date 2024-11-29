@@ -3,6 +3,14 @@ PODS:
   - Cosmos (25.0.1)
   - CountryPickerView (3.3.0)
   - DropDown (2.3.13)
+  - GoogleMaps (9.1.1):
+    - GoogleMaps/Maps (= 9.1.1)
+  - GoogleMaps/Base (9.1.1)
+  - GoogleMaps/Maps (9.1.1):
+    - GoogleMaps/Base
+  - GooglePlaces (9.1.0)
+  - InputMask (6.1.0)
+  - LanguageManager-iOS (1.2.9)
   - libwebp (1.3.2):
     - libwebp/demux (= 1.3.2)
     - libwebp/mux (= 1.3.2)
@@ -24,16 +32,22 @@ PODS:
   - SDWebImage/WebP (4.4.8):
     - libwebp (< 2.0, >= 0.5)
     - SDWebImage/Core
+  - SwiftyJSON (5.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.1)
   - Cosmos
   - CountryPickerView
   - DropDown
+  - GoogleMaps
+  - GooglePlaces
+  - InputMask
+  - LanguageManager-iOS
   - OTPFieldView
   - Parchment
   - R.swift (~> 5.4.0)
   - SDWebImage/WebP
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -41,25 +55,35 @@ SPEC REPOS:
     - Cosmos
     - CountryPickerView
     - DropDown
+    - GoogleMaps
+    - GooglePlaces
+    - InputMask
+    - LanguageManager-iOS
     - libwebp
     - OTPFieldView
     - Parchment
     - R.swift
     - R.swift.Library
     - SDWebImage
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cosmos: 02db0a1c953107049bfd2d7af19ceef55ecb7e98
   CountryPickerView: 6322ada32a80b0cd721b0267282a5c24f406f263
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  GoogleMaps: 80ea184ed6bf44139f383a8b0e248ba3ec1cc8c9
+  GooglePlaces: 00c43ad62c888354fe0bc5ce09181b2f6ce8b6d1
+  InputMask: 71d291dc54d2deaeac6512afb6ec2304228c0bb7
+  LanguageManager-iOS: c1dbb2329fc4b8c0dbc0b0d386a11ea9553a359b
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
   Parchment: fdea264f5de6d73b0b69a31c686fab762c78ed2f
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
 
-PODFILE CHECKSUM: f1740f173cf86e39187f494064ac7c70ec8586a9
+PODFILE CHECKSUM: 40ba0c64dec047438802b98c938ef0b351521cd0
 
 COCOAPODS: 1.15.2

@@ -28,7 +28,6 @@ struct dataModel {
 enum emLang: String {
     case english
     case arabic
-    case turkish
 }
 var cLang: emLang = .english
 

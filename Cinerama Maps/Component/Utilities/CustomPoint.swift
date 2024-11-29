@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import MapKit
+import GoogleMaps
 
-class CustomPointAnnotation: MKPointAnnotation {
+class CustomPointAnnotation: GMSMarker {
     
     var imageName: String!
     var providerName: String!
     var city_Address: String!
     var providerRating: String!
     var point:String!
-    var providerId:String!
-    
+    var placeId:String!
+    var lat:String!
+    var lon:String!
 }

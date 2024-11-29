@@ -9,6 +9,12 @@ import UIKit
 
 class SubscriptionCell: UITableViewCell {
 
+    @IBOutlet weak var lbl_MapName: UILabel!
+    @IBOutlet weak var lbl_Amount: UILabel!
+    @IBOutlet weak var lbl_AboutCity: UILabel!
+    
+    var cloCancelPackage:(() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +26,8 @@ class SubscriptionCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    @IBAction func btn_CancelPackage(_ sender: UIButton) {
+        self.cloCancelPackage?()
+    }
 }

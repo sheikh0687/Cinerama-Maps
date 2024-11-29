@@ -3,8 +3,11 @@ ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
 ${BUILT_PRODUCTS_DIR}/CountryPickerView/CountryPickerView.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
+${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework
+${BUILT_PRODUCTS_DIR}/LanguageManager-iOS/LanguageManager_iOS.framework
 ${BUILT_PRODUCTS_DIR}/OTPFieldView/OTPFieldView.framework
 ${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework
 ${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework

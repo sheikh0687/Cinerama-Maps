@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import LanguageManager_iOS
+
 extension UIViewController {
     
     public func setNavigationBarItem(LeftTitle: String, LeftImage: String, CenterTitle: String, CenterImage: String, RightTitle: String, RightImage: String, BackgroundColor: String, BackgroundImage: String, TextColor: String, TintColor: String, Menu: String) {
@@ -131,8 +133,8 @@ extension UIViewController {
     
     func showProgressBar() {
         let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true);
-        spinnerActivity.label.text = "Loading"/*.localiz()*/;
-        spinnerActivity.detailsLabel.text = "Please wait"/*.localiz()*/;
+        spinnerActivity.label.text = "Loading".localiz();
+        spinnerActivity.detailsLabel.text = "Please wait".localiz();
         spinnerActivity.isUserInteractionEnabled = true;
     }
 
@@ -156,7 +158,7 @@ extension UIViewController {
 
     func alert(alertmessage: String) {
         let alert = UIAlertController(title: k.appName, message: alertmessage, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok"/*.localiz()*/, style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Ok".localiz(), style: .default, handler: { action in
             switch action.style {
             case .default:
                 print("default")
@@ -191,8 +193,8 @@ extension UIViewController {
         
         datePicker.locale = Locale(identifier: "en_GB")
         datePicker.show("Date",
-                        doneButtonTitle: "Done",
-                        cancelButtonTitle: "Cancel",
+                        doneButtonTitle: "Done".localiz(),
+                        cancelButtonTitle: "Cancel".localiz(),
                         minimumDate: nil,
                         maximumDate: currentDate,
                         datePickerMode: mode) { (date) in

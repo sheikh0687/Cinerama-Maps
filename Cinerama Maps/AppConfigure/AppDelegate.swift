@@ -8,7 +8,11 @@
 import UIKit
 import CoreLocation
 import IQKeyboardManagerSwift
+import GoogleMaps
+import GooglePlaces
+import LanguageManager_iOS
 
+let Kstoryboard = UIStoryboard.init(name: "Main", bundle: nil)
 let kAppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @main
@@ -23,8 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        Switcher.updateRootVC()
         IQKeyboardManager.shared.enable = true
+        Switcher.updateRootVC()
+        LocationManager.sharedInstance.delegate = kAppDelegate
+        LocationManager.sharedInstance.startUpdatingLocation()
+        GMSServices.provideAPIKey("AIzaSyAGxLMNvIuc8XpG21cOF3VkxbK1EkTpuzQ")
+        GMSPlacesClient.provideAPIKey("AIzaSyAGxLMNvIuc8XpG21cOF3VkxbK1EkTpuzQ")
+        LanguageManager.shared.defaultLanguage = .deviceLanguage
         
         if #available(iOS 13.0, *) {
             let tabBarAppearance = UITabBarAppearance()
@@ -37,12 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if #available(iOS 15.0, *) {
                 UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
             }
-            
         }
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
 
     func applicationWillResignActive(_ application: UIApplication) {
         
@@ -63,6 +69,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         
     }
-
 }
 
+extension AppDelegate: LocationManagerDelegate {
+    
+    func didEnterInCircularArea() {
+        print("")
+    }
+    
+    func didExitCircularArea() {
+        print("")
+    }
+    
+    
+    func tracingLocation(currentLocation: CLLocation) {
+        coordinate2 = currentLocation
+        print(coordinate2)
+        let distanceInMeters = coordinate1.distance(from: coordinate2) // result is in meters
+        if distanceInMeters > 250 {
+            CURRENT_LAT = String(currentLocation.coordinate.latitude)
+            print(CURRENT_LAT)
+            CURRENT_LON = String(currentLocation.coordinate.longitude)
+            coordinate1 = currentLocation
+            if let _ = UserDefaults.standard.value(forKey: "user_id") {
+                //self.updateLatLon()
+            }
+        }
+    }
+    
+    func tracingLocationDidFailWithError(error: NSError) {
+        print("tracing Location Error : \(error.description)")
+    }
+}
